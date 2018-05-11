@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>eTrak API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,7 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">php</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,218 +220,738 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#php-sdk" class="toc-h2 toc-link" data-title="php-sdk">PHP SDK</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authenticateuser" class="toc-h2 toc-link" data-title="authenticateuser">AuthenticateUser</a>
+                  </li>
+                  <li>
+                    <a href="#createapikey" class="toc-h2 toc-link" data-title="createapikey">CreateApiKey</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-users" class="toc-h2 toc-link" data-title="list-all-users">List All Users</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-user" class="toc-h2 toc-link" data-title="get-a-user">Get A User</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-user" class="toc-h2 toc-link" data-title="create-a-user">Create A User</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="update-a-user">Update A User</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-user" class="toc-h2 toc-link" data-title="delete-a-user">Delete A User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#account" class="toc-h1 toc-link" data-title="account">Account</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-your-account-info" class="toc-h2 toc-link" data-title="get-your-account-info">Get Your Account Info</a>
+                  </li>
+                  <li>
+                    <a href="#update-your-account" class="toc-h2 toc-link" data-title="update-your-account">Update Your Account</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#contracts" class="toc-h1 toc-link" data-title="contracts">Contracts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-contracts" class="toc-h2 toc-link" data-title="list-all-contracts">List All Contracts</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-contract" class="toc-h2 toc-link" data-title="get-a-contract">Get A Contract</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href="https://etrak.io">Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>Welcome to the eTrak API Reference.</p>
+<h2 id='php-sdk'>PHP SDK</h2>
+<p>There&#39;s a PHP SDK available for this API. You can download it here.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://api.etrak.io/helloworld"</span>
+  -H <span class="s2">"Authorization: apikey"</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>apikey</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>eTrak uses API keys to allow access to the API. You can create an eTrak API key at <a href="https://etrak.io">eTrak.io</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>eTrak expects for the API key to be included in all API requests (except the <code>AuthenticateUser</code> service) to the server in a header that looks like the following:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>Authorization: apikey</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>apikey</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<h2 id='authenticateuser'>AuthenticateUser</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example JSON Request Body:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa55word"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5DFB8-16EF2-E5358-0E24F-E37AA-6FBA1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-28 19:09:46"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method generates a <strong>temporary</strong> API key (that expires in 60 minutes) by providing your eTrak.io <code>email</code> and <code>password</code>.  You can then use this API key in a subsequent request to the <code>CreateApiKey</code> service to obtain a more permanent API key.</p>
+
+<aside class="notice">
+  You do not have to use the API to create keys. You can do this by logging into your account at eTrak.io
+</aside>
+
+<aside class="warning">
+  You should not use this to authenticate your application - it exists solely for the purpose of generating a <strong>temporary</strong> key so that you might then generate a permanent one using the <strong>`CreateApiKey`</strong> service. The reason for this is that this method relies on your email and password that could change at a later date.
+</aside>
+<h3 id='endpoint'>Endpoint</h3>
+<p><code>POST https://etrak.io/api/AuthenticateUser</code></p>
+<h3 id='json-payload'>JSON Payload</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Attribute</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>email</td>
+<td>true</td>
+<td>Your eTrak.io login email.</td>
 </tr>
 <tr>
-<td>available</td>
+<td>password</td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>Your eTrak.io password.</td>
 </tr>
 </tbody></table>
 
 <aside class="success">
+  You can now use the API key returned in subsequent requests to the API for 60 minutes.
+</aside>
+<h2 id='createapikey'>CreateApiKey</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Request Body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my application"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1467B-B0083-1C615-7C3A8-B0B89-B77C1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2118-03-27 19:01:30"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method generates a new API key (that expires in 100 years) by providing another eTrak.io API key (for example a temporary one created with <code>AuthenticateUser</code>).</p>
+
+<aside class="notice">
+  You do not have to use the API to create keys. You can do this by logging into your account at eTrak.io
+</aside>
+<h3 id='endpoint-2'>Endpoint</h3>
+<p><code>POST https://etrak.io/api/CreateApiKey</code></p>
+<h3 id='json-payload-2'>JSON Payload</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reference</td>
+<td>true</td>
+<td>A free text reference for this API key.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+  You can use this API in subsequent requests to the API.
+</aside>
+<h1 id='users'>Users</h1>
+<p>Users are people who can log in and manage your eTrak.io account.</p>
+
+<aside class="notice">
+  You can manage users from your eTrak.io account online too.
+</aside>
+<h2 id='list-all-users'>List All Users</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This method lists all users registered on your eTrak.io account.</p>
+<h3 id='endpoint-3'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Users</code></p>
+<h2 id='get-a-user'>Get A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method retrieves a single user registered on your eTrak.io account.</p>
+<h3 id='endpoint-4'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/User/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you wish to retrieve.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-user'>Create A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich1@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rich Barrett"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:31:43"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:31:43"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich3@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rich Barrett"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method creates a user. Any field you specify in the JSON payload will be updated.</p>
+<h3 id='endpoint-5'>Endpoint</h3>
+<p><code>POST https://etrak.io/api/User</code></p>
+<h3 id='json-payload-3'>JSON Payload</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Set the user&#39;s email.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Set the user&#39;s password.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Set the user&#39;s name.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-user'>Update A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rich Barrett"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:17:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich@parcelmonkey.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rich Barrett"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method updates a user. Any field you specify in the JSON payload will be updated.</p>
+<h3 id='endpoint-6'>Endpoint</h3>
+<p><code>PUT https://etrak.io/api/User/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you wish to retrieve.</td>
+</tr>
+</tbody></table>
+<h3 id='json-payload-4'>JSON Payload</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Update the user&#39;s email.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Update the user&#39;s password.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Update the user&#39;s name.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-user'>Delete A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<p>This method deletes a user from your eTrak.io account.</p>
+<h3 id='endpoint-7'>Endpoint</h3>
+<p><code>DELETE https://etrak.io/api/User/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you wish to delete.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+On success a 204 response code is sent.
+</aside>
+<h1 id='account'>Account</h1><h2 id='get-your-account-info'>Get Your Account Info</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:04:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 21:10:23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcel Monkey UK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcel Monkey Ltd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 21"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Links"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tollgate"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chandlers Ford"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method retrieves your eTrak.io account details.</p>
+<h3 id='endpoint-8'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Account</code></p>
+<h2 id='update-your-account'>Update Your Account</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 21"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Links"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tollgate"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chandlers Ford"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:04:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 21:10:23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcel Monkey UK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parcel Monkey Ltd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 21"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Links"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tollgate"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chandlers Ford"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method updates your account details. Any field you specify in the JSON payload will be updated.</p>
+<h3 id='endpoint-9'>Endpoint</h3>
+<p><code>PUT https://etrak.io/api/Account</code></p>
+<h3 id='json-payload-5'>JSON Payload</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>address1</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>address2</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>address3</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>town</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>county</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>postcode</td>
+<td>Update your invoicing address.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Update your invoicing address.</td>
+</tr>
+</tbody></table>
+<h1 id='contracts'>Contracts</h1>
+<p>Contracts represent the commercial agreements you have with eTrak.</p>
+<h2 id='list-all-contracts'>List All Contracts</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial contract"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:47:20"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:47:20"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"second contract"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This method lists all contracts on your eTrak.io account.</p>
+<h3 id='endpoint-10'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Contracts</code></p>
+<h2 id='get-a-contract'>Get A Contract</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<span class="c1">// tbc
+</span><span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial contract"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method retrieves a single contract on your eTrak.io account.</p>
+<h3 id='endpoint-11'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Contract/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the contract you wish to retrieve.</td>
+</tr>
+</tbody></table>
+
+<!--
+
+
+# Kittens
+
+## Get All Kittens
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+```
+
+```shell
+curl "http://example.com/api/kittens"
+  -H "Authorization: meowmeowmeow"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+This endpoint retrieves all kittens.
+
+### HTTP Request
+
+`GET http://example.com/api/kittens`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+<aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+## Get a Specific Kitten
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+```ruby
+require 'kittn'
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```shell
+curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+### HTTP Request
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+`GET http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+
+## Delete a Specific Kitten
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.delete(2)
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.delete(2)
+```
+
+```shell
+curl "http://example.com/api/kittens/2"
   -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+  -H "Authorization: meowmeowmeow"
+```
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.delete(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
+
+This endpoint deletes a specific kitten.
+
+### HTTP Request
+
+`DELETE http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
+
+-->
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
 
 <p>The Kittn API uses the following error codes:</p>
 
@@ -445,7 +963,7 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -493,9 +1011,7 @@ Remember — a happy kitten is an authenticated kitten!
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">php</a>
           </div>
       </div>
     </div>
