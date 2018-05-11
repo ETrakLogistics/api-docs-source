@@ -121,6 +121,9 @@ password | true | Your eTrak.io password.
 </aside>
 
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -180,6 +183,9 @@ reference | true | A free text reference for this API key.
 </aside>
 
 
+<aside class="success">
+On success a 201 response code is sent.
+</aside>
 
 
 
@@ -230,6 +236,9 @@ This method lists all users registered on your eTrak.io account.
 
 `GET https://etrak.io/api/Users`
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -276,6 +285,9 @@ id | The ID of the user you wish to retrieve.
 
 
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -332,6 +344,9 @@ password | Set the user's password.
 name | Set the user's name.
 
 
+<aside class="success">
+On success a 201 response code is sent.
+</aside>
 
 
 
@@ -395,6 +410,9 @@ password | Update the user's password.
 name | Update the user's name.
 
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -484,6 +502,9 @@ This method retrieves your eTrak.io account details.
 `GET https://etrak.io/api/Account`
 
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -556,6 +577,9 @@ county | Update your invoicing address.
 postcode | Update your invoicing address.
 country | Update your invoicing address.
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -626,6 +650,9 @@ This method lists all contracts on your eTrak.io account.
 `GET https://etrak.io/api/Contracts`
 
 
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 
 
 
@@ -668,6 +695,441 @@ This method retrieves a single contract on your eTrak.io account.
 URI Parameter | Description
 --------- | ------- | -----------
 id | The ID of the contract you wish to retrieve.
+
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+# Users
+
+Users are people who can log in and manage your eTrak.io account.
+
+<aside class="notice">
+  You can manage users from your eTrak.io account online too.
+</aside>
+
+## List All Users
+
+```shell
+# tbc
+```
+
+```php
+<?
+// tbc
+?>
+```
+
+> Example JSON Response:
+
+```json
+[
+    {
+        "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
+        "created": "2018-03-27 16:17:30",
+        "modified": "2018-03-27 16:17:30",
+        "email": "rich@parcelmonkey.com",
+        "name": "Richard Barrett"
+    }
+]
+```
+
+
+This method lists all users registered on your eTrak.io account.
+
+
+### Endpoint
+
+`GET https://etrak.io/api/Users`
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+## Get A User
+
+```shell
+# tbc
+```
+
+```php
+<?
+// tbc
+?>
+```
+
+> Example JSON Response:
+
+```json
+{
+    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
+    "created": "2018-03-27 16:17:30",
+    "modified": "2018-03-27 16:17:30",
+    "email": "rich@parcelmonkey.com",
+    "name": "Richard Barrett"
+}
+```
+
+
+This method retrieves a single user registered on your eTrak.io account.
+
+
+### Endpoint
+
+`GET https://etrak.io/api/User/{id}`
+
+URI Parameter | Description
+--------- | ------- | -----------
+id | The ID of the user you wish to retrieve.
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+# Consignments
+
+## Get A Consignment
+
+```shell
+# tbc
+```
+
+```php
+<?
+// tbc
+?>
+```
+
+> Example JSON Response:
+
+```json
+{
+    "id": "3260bbf8-e2f4-4a78-b719-e11c17d881f2",
+    "created": "2018-05-11 11:38:38",
+    "modified": "2018-05-11 11:38:38",
+    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+    "service_id": "etrak_tracked",
+    "barcode": "ETYCL000000041",
+    "client_ref1": "richjohntest",
+    "client_ref2": "",
+    "client_ref3": "",
+    "webhook": "https://www.parcelmonkey.co.uk/webhook",
+    "address_delivery": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    },
+    "address_collection": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    },
+    "address_return": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    }
+}
+```
+
+
+This method retrieves a single consignment.
+
+
+### Endpoint
+
+`GET https://etrak.io/api/Consignment/{id}`
+
+URI Parameter | Description
+--------- | ------- | -----------
+id | The ID of the consignment you wish to retrieve.
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+## Create A Consignment
+
+```shell
+# tbc
+```
+
+```php
+<?
+// tbc
+?>
+```
+
+> Example JSON Request:
+
+```json
+{
+	"contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+	"service_id": "etrak_tracked",
+	"barcode": false,
+	"client_ref1": "richjohntest",
+	"client_ref2": "",
+	"client_ref3": "",
+	"webhook": "https://www.parcelmonkey.co.uk/webhook",
+	"pieces": [
+		{
+			"weight":"0.12",
+			"length": "1",
+			"width": "2",
+			"height": "3",
+			"contents": [
+				{
+					"description": "book",
+					"value" : "10.00",
+					"currency" : "GBP",
+					"hs_code": "1122334455"
+				}
+			]
+		}
+	],
+	"address_delivery": {
+		"name": "Richard Barrett",
+		"telephone": "01234567890",
+		"email": "rich@parcelmonkey.com",
+		"company": "Parcel Monkey",
+		"line1": "Unit 21",
+		"line2": "Tollgate",
+		"line3": "Eastleigh",
+		"city": "Chandlers Ford",
+		"state": "Hampshire",
+		"postcode": "SO53 3TG",
+		"country": "GB",
+		"district": ""
+	},
+	"address_return": {
+		"name": "Richard Barrett",
+		"telephone": "01234567890",
+		"email": "rich@parcelmonkey.com",
+		"company": "Parcel Monkey",
+		"line1": "Unit 21",
+		"line2": "Tollgate",
+		"line3": "Eastleigh",
+		"city": "Chandlers Ford",
+		"state": "Hampshire",
+		"postcode": "SO53 3TG",
+		"country": "GB",
+		"district": ""
+	},
+	"address_collection": {
+		"name": "Richard Barrett",
+		"telephone": "01234567890",
+		"email": "rich@parcelmonkey.com",
+		"company": "Parcel Monkey",
+		"line1": "Unit 21",
+		"line2": "Tollgate",
+		"line3": "Eastleigh",
+		"city": "Chandlers Ford",
+		"state": "Hampshire",
+		"postcode": "SO53 3TG",
+		"country": "GB",
+		"district": ""
+	}
+}
+```
+
+> Example JSON Response:
+
+```json
+{
+    "id": "3260bbf8-e2f4-4a78-b719-e11c17d881f2",
+    "created": "2018-05-11 11:38:38",
+    "modified": "2018-05-11 11:38:38",
+    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+    "service_id": "etrak_tracked",
+    "barcode": "ETYCL000000041",
+    "client_ref1": "richjohntest",
+    "client_ref2": "",
+    "client_ref3": "",
+    "webhook": "https://www.parcelmonkey.co.uk/webhook",
+    "address_delivery": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    },
+    "address_collection": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    },
+    "address_return": {
+        "name": "Richard Barrett",
+        "company": "Parcel Monkey",
+        "telephone": "01234567890",
+        "email": "rich@parcelmonkey.com",
+        "line1": "Unit 21",
+        "line2": "Tollgate",
+        "line3": "Eastleigh",
+        "city": "Chandlers Ford",
+        "state": "Hampshire",
+        "postcode": "SO53 3TG",
+        "country": "GB",
+        "district": ""
+    }
+}
+```
+
+
+This method creates a consignment.
+
+
+### Endpoint
+
+`POST https://etrak.io/api/Consignment`
+
+### JSON Payload
+
+Attribute | Description | Notes
+--------- | ------- | -----------
+contract_id | The contract to book on
+service_id | The service you want to use.
+barcode | eTrak barcode | Specify your own (from your range) or "false" to be allocated one
+client_ref1 | Your own reference | Optional
+client_ref2 | Your own reference | Optional
+client_ref3 | Your own reference | Optional
+webhook | URL we should post updates to | Optional
+pieces | Pieces in your consignment |
+address_delivery | Where you want your parcel delivered to
+address_collection | Where your parcel should be collected from (if appropriate)
+address_return | Where you parcel should be returned to if there's a problem
+
+
+<aside class="success">
+On success a 201 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+
+
+## Cancel A Consignment
+
+```shell
+# tbc
+```
+
+```php
+<?
+// tbc
+?>
+```
+
+This method cancels a consignment (if it is not already shipped).
+
+
+### Endpoint
+
+`DELETE https://etrak.io/api/Consignment/{id}`
+
+URI Parameter | Description
+--------- | ------- | -----------
+id | The ID of the consignment you wish to cancel.
+
+<aside class="success">
+On success a 204 response code is sent.
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
