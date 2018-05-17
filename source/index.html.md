@@ -19,10 +19,29 @@ search: true
 
 Welcome to the eTrak API Reference.
 
+
+## Endpoints
+
+If you don't wish to use the PHP SDK, your requests should be sent to:
+
+Sandbox: `https://sandbox.api.etrak.io/api/{service}`
+<br />
+Production: `https://api.etrak.io/api/{service}`
+
+
+
+
+## Sandbox
+
+eTrak has a Sandbox environment that mirrors the production environment for testing.
+
+The PHP SDK also supports the Sandbox (see the docs for details).
+
+
 ## PHP SDK
 
-There's a PHP SDK available for this API. You can download it here.
-
+There's a PHP SDK available for this API. You can get it here: <br />
+<a href="https://github.com/ParcelMonkeyGroup/etrak-php">https://github.com/ParcelMonkeyGroup/etrak-php</a>.
 
 
 # Authentication
