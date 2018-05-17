@@ -50,7 +50,7 @@ There's a PHP SDK available for this API. You can get it here: <br />
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://api.etrak.io/helloworld"
+curl "https://api.etrak.io/api"
   -H "Authorization: apikey"
 ```
 
