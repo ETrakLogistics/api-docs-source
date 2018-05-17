@@ -991,8 +991,87 @@ On success a 200 response code is sent.
 On success a 200 response code is sent.
 </aside>
 <h2 id='create-a-consignment'>Create A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
+
+
+<span class="nv">$data</span> <span class="o">=</span> 
+<span class="k">array</span> <span class="p">(</span>
+  <span class="s1">'contract_id'</span> <span class="o">=&gt;</span> <span class="s1">'641b4b46-d0fe-4e76-b7e9-ce7754c26955'</span><span class="p">,</span>
+  <span class="s1">'service_id'</span> <span class="o">=&gt;</span> <span class="s1">'etrak_tracked'</span><span class="p">,</span>
+  <span class="s1">'barcode'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s1">'client_ref1'</span> <span class="o">=&gt;</span> <span class="s1">'test'</span><span class="p">,</span>
+  <span class="s1">'client_ref2'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'client_ref3'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'webhook'</span> <span class="o">=&gt;</span> <span class="s1">'https://www.parcelmonkey.co.uk/webhook'</span><span class="p">,</span>
+  <span class="s1">'pieces'</span> <span class="o">=&gt;</span> 
+  <span class="k">array</span> <span class="p">(</span> 
+    <span class="k">array</span> <span class="p">(</span>
+      <span class="s1">'weight'</span> <span class="o">=&gt;</span> <span class="s1">'0.12'</span><span class="p">,</span>
+      <span class="s1">'length'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+      <span class="s1">'width'</span> <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
+      <span class="s1">'height'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span>
+      <span class="s1">'contents'</span> <span class="o">=&gt;</span> 
+      <span class="k">array</span> <span class="p">(</span> 
+        <span class="k">array</span> <span class="p">(</span>
+          <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'book'</span><span class="p">,</span>
+          <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'10.00'</span><span class="p">,</span>
+          <span class="s1">'currency'</span> <span class="o">=&gt;</span> <span class="s1">'GBP'</span><span class="p">,</span>
+          <span class="s1">'hs_code'</span> <span class="o">=&gt;</span> <span class="s1">'1122334455'</span><span class="p">,</span>
+        <span class="p">),</span>
+      <span class="p">),</span>
+    <span class="p">),</span>
+  <span class="p">),</span>
+  <span class="s1">'address_delivery'</span> <span class="o">=&gt;</span> 
+  <span class="k">array</span> <span class="p">(</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Richard Barrett'</span><span class="p">,</span>
+    <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'01234567890'</span><span class="p">,</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'rich@parcelmonkey.com'</span><span class="p">,</span>
+    <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'Parcel Monkey'</span><span class="p">,</span>
+    <span class="s1">'line1'</span> <span class="o">=&gt;</span> <span class="s1">'Unit 21'</span><span class="p">,</span>
+    <span class="s1">'line2'</span> <span class="o">=&gt;</span> <span class="s1">'Tollgate'</span><span class="p">,</span>
+    <span class="s1">'line3'</span> <span class="o">=&gt;</span> <span class="s1">'Eastleigh'</span><span class="p">,</span>
+    <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Chandlers Ford'</span><span class="p">,</span>
+    <span class="s1">'state'</span> <span class="o">=&gt;</span> <span class="s1">'Hampshire'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
+    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
+    <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'address_return'</span> <span class="o">=&gt;</span> 
+  <span class="k">array</span> <span class="p">(</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Richard Barrett'</span><span class="p">,</span>
+    <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'01234567890'</span><span class="p">,</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'rich@parcelmonkey.com'</span><span class="p">,</span>
+    <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'Parcel Monkey'</span><span class="p">,</span>
+    <span class="s1">'line1'</span> <span class="o">=&gt;</span> <span class="s1">'Unit 21'</span><span class="p">,</span>
+    <span class="s1">'line2'</span> <span class="o">=&gt;</span> <span class="s1">'Tollgate'</span><span class="p">,</span>
+    <span class="s1">'line3'</span> <span class="o">=&gt;</span> <span class="s1">'Eastleigh'</span><span class="p">,</span>
+    <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Chandlers Ford'</span><span class="p">,</span>
+    <span class="s1">'state'</span> <span class="o">=&gt;</span> <span class="s1">'Hampshire'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
+    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
+    <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'address_collection'</span> <span class="o">=&gt;</span> 
+  <span class="k">array</span> <span class="p">(</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Richard Barrett'</span><span class="p">,</span>
+    <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'01234567890'</span><span class="p">,</span>
+    <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'rich@parcelmonkey.com'</span><span class="p">,</span>
+    <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'Parcel Monkey'</span><span class="p">,</span>
+    <span class="s1">'line1'</span> <span class="o">=&gt;</span> <span class="s1">'Unit 21'</span><span class="p">,</span>
+    <span class="s1">'line2'</span> <span class="o">=&gt;</span> <span class="s1">'Tollgate'</span><span class="p">,</span>
+    <span class="s1">'line3'</span> <span class="o">=&gt;</span> <span class="s1">'Eastleigh'</span><span class="p">,</span>
+    <span class="s1">'city'</span> <span class="o">=&gt;</span> <span class="s1">'Chandlers Ford'</span><span class="p">,</span>
+    <span class="s1">'state'</span> <span class="o">=&gt;</span> <span class="s1">'Hampshire'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
+    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
+    <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="p">),</span>
+<span class="p">);</span>
+
+<span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setApiKey</span><span class="p">(</span><span class="nx">YOUR_API_KEY</span><span class="p">);</span>
+<span class="nv">$r</span> <span class="o">=</span> <span class="nx">\etrak\Consignment</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$r</span><span class="p">);</span><span class="k">exit</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span>
 </code></pre>
 <blockquote>
 <p>Example JSON Request:</p>
