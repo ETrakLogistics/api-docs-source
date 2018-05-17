@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,6 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="php">php</a>
         </div>
         <div class="search">
@@ -306,6 +305,14 @@
               </ul>
           </li>
           <li>
+            <a href="#label" class="toc-h1 toc-link" data-title="label">Label</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-label" class="toc-h2 toc-link" data-title="get-a-label">Get A Label</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -344,10 +351,16 @@ curl <span class="s2">"https://api.etrak.io/helloworld"</span>
 <aside class="notice">
 You must replace <code>apikey</code> with your personal API key.
 </aside>
-<h2 id='authenticateuser'>AuthenticateUser</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
+<h2 id='authenticateuser'>AuthenticateUser</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+
+<span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">();</span>
+<span class="nv">$r</span> <span class="o">=</span> <span class="nx">\etrak\AuthenticateUser</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+  <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'rich@parcelmonkey.com'</span><span class="p">,</span>
+  <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'hello1'</span>
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$r</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
 </code></pre>
 <blockquote>
 <p>Example JSON Request Body:</p>
@@ -403,10 +416,15 @@ You must replace <code>apikey</code> with your personal API key.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='createapikey'>CreateApiKey</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
+<h2 id='createapikey'>CreateApiKey</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+
+<span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setApiKey</span><span class="p">(</span><span class="nx">YOUR_TEMPORARY_API_KEY</span><span class="p">);</span>
+<span class="nv">$r</span> <span class="o">=</span> <span class="nx">\etrak\ApiKey</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+  <span class="s1">'reference'</span> <span class="o">=&gt;</span> <span class="s1">'reference for this API key'</span>
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$r</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
 </code></pre>
 <blockquote>
 <p>Example JSON Request Body:</p>
@@ -458,8 +476,7 @@ On success a 201 response code is sent.
 <aside class="notice">
   You can manage users from your eTrak.io account online too.
 </aside>
-<h2 id='list-all-users'>List All Users</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='list-all-users'>List All Users</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -483,8 +500,7 @@ On success a 201 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='get-a-user'>Get A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='get-a-user'>Get A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -518,8 +534,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='create-a-user'>Create A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='create-a-user'>Create A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -570,8 +585,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 201 response code is sent.
 </aside>
-<h2 id='update-a-user'>Update A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='update-a-user'>Update A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -634,8 +648,7 @@ On success a 201 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='delete-a-user'>Delete A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='delete-a-user'>Delete A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -658,8 +671,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 204 response code is sent.
 </aside>
-<h1 id='account'>Account</h1><h2 id='get-your-account-info'>Get Your Account Info</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h1 id='account'>Account</h1><h2 id='get-your-account-info'>Get Your Account Info</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -688,8 +700,7 @@ On success a 204 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='update-your-account'>Update Your Account</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='update-your-account'>Update Your Account</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -769,8 +780,7 @@ On success a 200 response code is sent.
 </aside>
 <h1 id='contracts'>Contracts</h1>
 <p>Contracts represent the commercial agreements you have with eTrak.</p>
-<h2 id='list-all-contracts'>List All Contracts</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='list-all-contracts'>List All Contracts</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -801,8 +811,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='get-a-contract'>Get A Contract</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='get-a-contract'>Get A Contract</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -842,8 +851,7 @@ On success a 200 response code is sent.
 <aside class="notice">
   You can manage users from your eTrak.io account online too.
 </aside>
-<h2 id='list-all-users-2'>List All Users</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='list-all-users-2'>List All Users</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -867,8 +875,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='get-a-user-2'>Get A User</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='get-a-user-2'>Get A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -902,8 +909,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h1 id='consignments'>Consignments</h1><h2 id='get-a-consignment'>Get A Consignment</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h1 id='consignments'>Consignments</h1><h2 id='get-a-consignment'>Get A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -984,8 +990,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h2 id='create-a-consignment'>Create A Consignment</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='create-a-consignment'>Create A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -1189,8 +1194,7 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 201 response code is sent.
 </aside>
-<h2 id='cancel-a-consignment'>Cancel A Consignment</h2><pre class="highlight shell tab-shell"><code><span class="c"># tbc</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+<h2 id='cancel-a-consignment'>Cancel A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
@@ -1213,183 +1217,48 @@ On success a 201 response code is sent.
 <aside class="success">
 On success a 204 response code is sent.
 </aside>
+<h1 id='label'>Label</h1>
+<p>Labels belong to a consignment.</p>
+<h2 id='get-a-label'>Get A Label</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
 
-<!--
+<span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setApiKey</span><span class="p">(</span><span class="nx">YOUR_API_KEY</span><span class="p">);</span>
+<span class="nv">$consignment_id</span> <span class="o">=</span> <span class="nx">YOUR_CONSIGNMENT_ID</span><span class="p">;</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">\etrak\Label</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$consignment_id</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Content-type:application/pdf"</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">"Content-Disposition:inline;filename='</span><span class="nv">$consignment_id</span><span class="s2">.pdf"</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">body</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">);</span>
 
 
-# Kittens
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"format"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"base64"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjcKJeLjz9MKNiAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW5..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method retrieves a single consignment.</p>
+<h3 id='endpoint-17'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Label/{id}</code></p>
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the consignment you wish to retrieve.</td>
+</tr>
+</tbody></table>
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+On success a 200 response code is sent.
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
--->
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -1452,7 +1321,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="php">php</a>
           </div>
       </div>
