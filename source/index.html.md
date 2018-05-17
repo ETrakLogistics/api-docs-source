@@ -2,7 +2,6 @@
 title: eTrak API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - php
 
 toc_footers:
@@ -64,13 +63,17 @@ You must replace <code>apikey</code> with your personal API key.
 
 ## AuthenticateUser
 
-```shell
-# tbc
-```
 
 ```php
 <?
-// tbc
+
+$etrak = \etrak\etrak::instance();
+$r = \etrak\AuthenticateUser::create([
+  'email' => 'rich@parcelmonkey.com',
+  'password' => 'hello1'
+]);
+print_r($r);
+
 ?>
 ```
 
@@ -133,13 +136,16 @@ On success a 200 response code is sent.
 
 ## CreateApiKey
 
-```shell
-# tbc
-```
 
 ```php
 <?
-// tbc
+
+$etrak = \etrak\etrak::instance()->setApiKey(YOUR_TEMPORARY_API_KEY);
+$r = \etrak\ApiKey::create([
+  'reference' => 'reference for this API key'
+]);
+print_r($r);
+
 ?>
 ```
 
@@ -204,9 +210,6 @@ Users are people who can log in and manage your eTrak.io account.
 
 ## List All Users
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -249,9 +252,6 @@ On success a 200 response code is sent.
 
 ## Get A User
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -295,9 +295,6 @@ On success a 200 response code is sent.
 
 ## Create A User
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -357,9 +354,6 @@ On success a 201 response code is sent.
 
 ## Update A User
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -420,9 +414,6 @@ On success a 200 response code is sent.
 
 ## Delete A User
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -465,9 +456,6 @@ On success a 204 response code is sent.
 
 ## Get Your Account Info
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -513,9 +501,6 @@ On success a 200 response code is sent.
 
 ## Update Your Account
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -611,9 +596,6 @@ Contracts represent the commercial agreements you have with eTrak.
 
 ## List All Contracts
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -662,9 +644,6 @@ On success a 200 response code is sent.
 
 ## Get A Contract
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -718,9 +697,6 @@ Users are people who can log in and manage your eTrak.io account.
 
 ## List All Users
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -763,9 +739,6 @@ On success a 200 response code is sent.
 
 ## Get A User
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -816,9 +789,6 @@ On success a 200 response code is sent.
 
 ## Get A Consignment
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -910,9 +880,6 @@ On success a 200 response code is sent.
 
 ## Create A Consignment
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -1091,9 +1058,6 @@ On success a 201 response code is sent.
 
 ## Cancel A Consignment
 
-```shell
-# tbc
-```
 
 ```php
 <?
@@ -1124,196 +1088,62 @@ On success a 204 response code is sent.
 
 
 
+# Label
+
+Labels belong to a consignment.
+
+## Get A Label
 
 
+```php
+<?
+
+$etrak = \etrak\etrak::instance()->setApiKey(YOUR_API_KEY);
+$consignment_id = YOUR_CONSIGNMENT_ID;
+
+$response = \etrak\Label::get($consignment_id);
+header("Content-type:application/pdf");
+header("Content-Disposition:inline;filename='$consignment_id.pdf");
+echo base64_decode($response->body->data);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+?>
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Example JSON Response:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "format" : "base64",
+  "data" : "JVBERi0xLjcKJeLjz9MKNiAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW5..."
+}
 ```
 
-This endpoint retrieves all kittens.
 
-### HTTP Request
+This method retrieves a single consignment.
 
-`GET http://example.com/api/kittens`
 
-### Query Parameters
+### Endpoint
 
-Parameter | Default | Description
+`GET https://etrak.io/api/Label/{id}`
+
+URI Parameter | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+id | The ID of the consignment you wish to retrieve.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+On success a 200 response code is sent.
 </aside>
 
-## Get a Specific Kitten
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
--->
