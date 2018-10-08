@@ -13,8 +13,6 @@ includes:
 search: true
 ---
 
-
-
 # Introduction
 
 Welcome to the eTrak API Reference.
