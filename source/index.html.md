@@ -60,7 +60,7 @@ curl "https://api.etrak.io/api"
 
 > Make sure to replace `apikey` with your API key.
 
-eTrak uses API keys to allow access to the API. You can create an eTrak API key at [eTrak.io](https://etrak.io).
+eTrak uses API keys to allow access to the API. Your account manager can supply you with an API key.
 
 eTrak expects for the API key to be included in all API requests (except the `AuthenticateUser` service) to the server in a header that looks like the following:
 
@@ -987,71 +987,75 @@ print_r($r);exit;
 
 ```json
 {
-	"contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
-	"service_id": "etrak_tracked",
-	"barcode": false,
-	"client_ref1": "richjohntest",
-	"client_ref2": "",
-	"client_ref3": "",
-	"webhook": "https://www.parcelmonkey.co.uk/webhook",
-	"pieces": [
-		{
-			"weight":"0.12",
-			"length": "1",
-			"width": "2",
-			"height": "3",
-			"contents": [
-				{
-					"description": "book",
-					"value" : "10.00",
-					"currency" : "GBP",
-					"hs_code": "1122334455"
-				}
-			]
-		}
-	],
-	"address_delivery": {
-		"name": "Richard Barrett",
-		"telephone": "01234567890",
-		"email": "rich@parcelmonkey.com",
-		"company": "Parcel Monkey",
-		"line1": "Unit 21",
-		"line2": "Tollgate",
-		"line3": "Eastleigh",
-		"city": "Chandlers Ford",
-		"state": "Hampshire",
-		"postcode": "SO53 3TG",
-		"country": "GB",
-		"district": ""
-	},
-	"address_return": {
-		"name": "Richard Barrett",
-		"telephone": "01234567890",
-		"email": "rich@parcelmonkey.com",
-		"company": "Parcel Monkey",
-		"line1": "Unit 21",
-		"line2": "Tollgate",
-		"line3": "Eastleigh",
-		"city": "Chandlers Ford",
-		"state": "Hampshire",
-		"postcode": "SO53 3TG",
-		"country": "GB",
-		"district": ""
-	},
-	"address_collection": {
-		"name": "Richard Barrett",
-		"telephone": "01234567890",
-		"email": "rich@parcelmonkey.com",
-		"company": "Parcel Monkey",
-		"line1": "Unit 21",
-		"line2": "Tollgate",
-		"line3": "Eastleigh",
-		"city": "Chandlers Ford",
-		"state": "Hampshire",
-		"postcode": "SO53 3TG",
-		"country": "GB",
-		"district": ""
-	}
+    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+    "service_id": "etrak_tracked",
+    "barcode": false,
+    "client_ref1": "test",
+    "client_ref2": "",
+    "client_ref3": "",
+    "webhook": "https://www.yourwebsite.com/webhook",
+    "export_type": "permanent",
+    "reason_for_export": "gift",
+    "pieces": [
+        {
+            "weight": "1.00",
+            "length": "30.00",
+            "width": "6.00",
+            "height": "5.00",
+            "contents": [
+                {
+                    "description": "Book",
+                    "value": "0.512",
+                    "currency": "GBP",
+                    "hs_code": "1122334455",
+                    "quantity": "120",
+                    "country_of_origin": "GB"
+                }
+            ]
+        }
+    ],
+  	"address_delivery": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
+  	},
+    "address_return": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
+    },
+    "address_collection": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
+    }
 }
 ```
 
@@ -1059,57 +1063,72 @@ print_r($r);exit;
 
 ```json
 {
-    "id": "3260bbf8-e2f4-4a78-b719-e11c17d881f2",
-    "created": "2018-05-11 11:38:38",
-    "modified": "2018-05-11 11:38:38",
+    "id": "aab4fb51-9934-4529-8065-256cd297e456",
+    "created": "2018-09-11 12:37:10",
+    "modified": "2018-09-11 12:37:10",
     "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
     "service_id": "etrak_tracked",
-    "barcode": "ETYCL000000041",
-    "client_ref1": "richjohntest",
+    "barcode": "ETPML000000278",
+    "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
-    "webhook": "https://www.parcelmonkey.co.uk/webhook",
+    "overlabel_scan": null,
+    "webhook": "https://www.yourwebsite.com/webhook",
     "address_delivery": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
+        "name": "Crystal Matinez",
+        "company": "",
+        "telephone": "01803698496",
+        "email": "cmati1130@gmail.com",
+        "line1": "529 Chiechi Ave",
+        "line2": "apt 3",
+        "line3": "95126 - 3340",
+        "city": "san jose",
+        "state": "CA",
+        "postcode": "95126",
+        "country": "US",
         "district": ""
+    },
+    "address_delivery": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
+  	},
+    "address_return": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
     },
     "address_collection": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
-        "district": ""
-    },
-    "address_return": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
-        "district": ""
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": ""
     }
 }
 ```
