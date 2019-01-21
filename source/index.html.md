@@ -993,9 +993,16 @@ print_r($r);exit;
     "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
+    "batch": "",
     "webhook": "https://www.yourwebsite.com/webhook",
     "export_type": "permanent",
-    "reason_for_export": "gift",
+    "reason_for_export": "sale",
+    "meta": {
+    	"string_var1": "string1",
+    	"bool_var1": true,
+    	"int_var1": 0,
+    	"float_var1": 0.0,
+    },
     "pieces": [
         {
             "weight": "1.00",
@@ -1026,7 +1033,8 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
+    		"district": "",
+            "notes": "Leave with neighbour"
   	},
     "address_return": {
     		"name": "Richard Barrett",
@@ -1040,7 +1048,8 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
+    		"district": "",
+            "notes": ""
     },
     "address_collection": {
     		"name": "Richard Barrett",
@@ -1054,7 +1063,8 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
+    		"district": "",
+            "notes": ""
     }
 }
 ```
@@ -1072,22 +1082,29 @@ print_r($r);exit;
     "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
+    "batch": null,
     "overlabel_scan": null,
     "webhook": "https://www.yourwebsite.com/webhook",
-    "address_delivery": {
-        "name": "Crystal Matinez",
-        "company": "",
-        "telephone": "01803698496",
-        "email": "cmati1130@gmail.com",
-        "line1": "529 Chiechi Ave",
-        "line2": "apt 3",
-        "line3": "95126 - 3340",
-        "city": "san jose",
-        "state": "CA",
-        "postcode": "95126",
-        "country": "US",
-        "district": ""
+    "export_type": "permanent",
+    "reason_for_export": "sale",
+    "status": "booked",
+    "shipped": "N",
+    "meta": {
+    	"string_var1": "string1",
+    	"bool_var1": true,
+    	"int_var1": 0,
+    	"float_var1": 0.0,
     },
+    "log": [
+        {
+            "message": "created",
+            "time": "2019-01-21 10:16:19"
+        },
+        {
+            "message": "Status change:  to book_onward_shipping",
+            "time": "2019-01-21 10:16:19"
+        }
+    ],
     "address_delivery": {
     		"name": "Richard Barrett",
     		"telephone": "01234567890",
@@ -1100,7 +1117,8 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
+    		"district": "",
+            "notes": "Leave with neighbour"
   	},
     "address_return": {
     		"name": "Richard Barrett",
@@ -1114,7 +1132,8 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
+    		"district": "",
+            "notes": ""
     },
     "address_collection": {
     		"name": "Richard Barrett",
@@ -1128,8 +1147,30 @@ print_r($r);exit;
     		"state": "Hampshire",
     		"postcode": "SO53 3TG",
     		"country": "GB",
-    		"district": ""
-    }
+    		"district": "",
+            "notes": ""
+    },
+    "pieces": [
+        {
+            "id": "46832880-db17-4b4b-a0c8-bd20ce6cf507",
+            "weight": "1.00",
+            "length": "30.00",
+            "width": "6.00",
+            "height": "5.00",
+            "contents": [
+                {
+                    "description": "Book",
+                    "value": "0.512",
+                    "currency": "GBP",
+                    "hs_code": "1122334455",
+                    "quantity": "120",
+                    "country_of_origin": "GB"
+                }
+            ],
+            "checked_weight": "0.000",
+            "log": null
+        }
+    ]
 }
 ```
 
@@ -1145,18 +1186,20 @@ This method creates a consignment.
 
 Attribute | Description | Notes
 --------- | ------- | -----------
-contract_id | The contract to book on
-service_id | The service you want to use.
+contract_id | The contract to book on | Mandatory
+service_id | The service you want to use. | Mandatory
 barcode | eTrak barcode | Specify your own (from your range) or "false" to be allocated one
 client_ref1 | Your own reference | Optional
 client_ref2 | Your own reference | Optional
 client_ref3 | Your own reference | Optional
+batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
-pieces | Pieces in your consignment |
-address_delivery | Where you want your parcel delivered to
-address_collection | Where your parcel should be collected from (if appropriate)
-address_return | Where you parcel should be returned to if there's a problem
-
+export_type | permanent or temporary | Optional
+reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required if crossing customs union, else optional
+pieces | Pieces in your consignment | Mandatory
+address_delivery | Where you want your parcel delivered to | Mandatory
+address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
+address_return | Where you parcel should be returned to if there's a problem | Optional
 
 <aside class="success">
 On success a 201 response code is sent.
