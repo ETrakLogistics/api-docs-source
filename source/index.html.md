@@ -881,7 +881,7 @@ This method retrieves a single consignment.
 `GET https://etrak.io/api/Consignment/{id}`
 
 URI Parameter | Description
---------- | ------- | -----------
+--------- | -------
 id | The ID of the consignment you wish to retrieve.
 
 <aside class="success">
@@ -910,6 +910,10 @@ array (
   'client_ref1' => 'test',
   'client_ref2' => '',
   'client_ref3' => '',
+  'batch' => '',
+  'export_type' => 'permanent',
+  'reason_for_export' => 'sale',
+  'meta' => [],
   'webhook' => 'https://www.parcelmonkey.co.uk/webhook',
   'pieces' => 
   array ( 
@@ -925,6 +929,8 @@ array (
           'value' => '10.00',
           'currency' => 'GBP',
           'hs_code' => '1122334455',
+          'quantity' => '120',
+          'country_of_origin' => 'GB',
         ),
       ),
     ),
@@ -943,6 +949,7 @@ array (
     'postcode' => 'SO53 3TG',
     'country' => 'GB',
     'district' => '',
+    'notes' => '',
   ),
   'address_return' => 
   array (
@@ -958,6 +965,7 @@ array (
     'postcode' => 'SO53 3TG',
     'country' => 'GB',
     'district' => '',
+    'notes' => '',
   ),
   'address_collection' => 
   array (
@@ -973,6 +981,7 @@ array (
     'postcode' => 'SO53 3TG',
     'country' => 'GB',
     'district' => '',
+    'notes' => '',
   ),
 );
 
