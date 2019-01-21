@@ -1018,6 +1018,10 @@ On success a 200 response code is sent.
   <span class="s1">'client_ref1'</span> <span class="o">=&gt;</span> <span class="s1">'test'</span><span class="p">,</span>
   <span class="s1">'client_ref2'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="s1">'client_ref3'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'batch'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="s1">'export_type'</span> <span class="o">=&gt;</span> <span class="s1">'permanent'</span><span class="p">,</span>
+  <span class="s1">'reason_for_export'</span> <span class="o">=&gt;</span> <span class="s1">'sale'</span><span class="p">,</span>
+  <span class="s1">'meta'</span> <span class="o">=&gt;</span> <span class="p">[],</span>
   <span class="s1">'webhook'</span> <span class="o">=&gt;</span> <span class="s1">'https://www.parcelmonkey.co.uk/webhook'</span><span class="p">,</span>
   <span class="s1">'pieces'</span> <span class="o">=&gt;</span> 
   <span class="k">array</span> <span class="p">(</span> 
@@ -1033,6 +1037,8 @@ On success a 200 response code is sent.
           <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'10.00'</span><span class="p">,</span>
           <span class="s1">'currency'</span> <span class="o">=&gt;</span> <span class="s1">'GBP'</span><span class="p">,</span>
           <span class="s1">'hs_code'</span> <span class="o">=&gt;</span> <span class="s1">'1122334455'</span><span class="p">,</span>
+          <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="s1">'120'</span><span class="p">,</span>
+          <span class="s1">'country_of_origin'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
         <span class="p">),</span>
       <span class="p">),</span>
     <span class="p">),</span>
@@ -1051,6 +1057,7 @@ On success a 200 response code is sent.
     <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
     <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
     <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'notes'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="p">),</span>
   <span class="s1">'address_return'</span> <span class="o">=&gt;</span> 
   <span class="k">array</span> <span class="p">(</span>
@@ -1066,6 +1073,7 @@ On success a 200 response code is sent.
     <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
     <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
     <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'notes'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="p">),</span>
   <span class="s1">'address_collection'</span> <span class="o">=&gt;</span> 
   <span class="k">array</span> <span class="p">(</span>
@@ -1081,6 +1089,7 @@ On success a 200 response code is sent.
     <span class="s1">'postcode'</span> <span class="o">=&gt;</span> <span class="s1">'SO53 3TG'</span><span class="p">,</span>
     <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
     <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'notes'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="p">),</span>
 <span class="p">);</span>
 
@@ -1100,9 +1109,16 @@ On success a 200 response code is sent.
     </span><span class="s2">"client_ref1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"client_ref2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"client_ref3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"batch"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhook"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"export_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"permanent"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reason_for_export"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gift"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason_for_export"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"string_var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bool_var1"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"int_var1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"float_var1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
@@ -1133,7 +1149,8 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leave with neighbour"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"address_return"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="p">,</span><span class="w">
@@ -1147,7 +1164,8 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"address_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="p">,</span><span class="w">
@@ -1161,7 +1179,8 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1178,22 +1197,29 @@ On success a 200 response code is sent.
     </span><span class="s2">"client_ref1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"client_ref2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"client_ref3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"batch"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"overlabel_scan"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.yourwebsite.com/webhook"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address_delivery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crystal Matinez"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01803698496"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cmati1130@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529 Chiechi Ave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apt 3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95126 - 3340"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"san jose"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95126"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="s2">"export_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"permanent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason_for_export"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipped"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"string_var1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bool_var1"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"int_var1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"float_var1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-21 10:16:19"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Status change:  to book_onward_shipping"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-21 10:16:19"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"address_delivery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
@@ -1206,7 +1232,8 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leave with neighbour"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"address_return"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="p">,</span><span class="w">
@@ -1220,7 +1247,8 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"address_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richard Barrett"</span><span class="p">,</span><span class="w">
@@ -1234,8 +1262,30 @@ On success a 200 response code is sent.
             </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hampshire"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46832880-db17-4b4b-a0c8-bd20ce6cf507"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Book"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.512"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"hs_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1122334455"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"country_of_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"checked_weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"log"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method creates a consignment.</p>
@@ -1252,12 +1302,12 @@ On success a 200 response code is sent.
 <tr>
 <td>contract_id</td>
 <td>The contract to book on</td>
-<td></td>
+<td>Mandatory</td>
 </tr>
 <tr>
 <td>service_id</td>
 <td>The service you want to use.</td>
-<td></td>
+<td>Mandatory</td>
 </tr>
 <tr>
 <td>barcode</td>
@@ -1280,29 +1330,44 @@ On success a 200 response code is sent.
 <td>Optional</td>
 </tr>
 <tr>
+<td>batch</td>
+<td>Your own reference for a batch / dispatch of Consignments</td>
+<td>Optional</td>
+</tr>
+<tr>
 <td>webhook</td>
 <td>URL we should post updates to</td>
 <td>Optional</td>
 </tr>
 <tr>
+<td>export_type</td>
+<td>permanent or temporary</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>reason_for_export</td>
+<td>sale, gift, intercompany transfer, sample, repair, return, personal items, other</td>
+<td>Required if crossing customs union, else optional</td>
+</tr>
+<tr>
 <td>pieces</td>
 <td>Pieces in your consignment</td>
-<td></td>
+<td>Mandatory</td>
 </tr>
 <tr>
 <td>address_delivery</td>
 <td>Where you want your parcel delivered to</td>
-<td></td>
+<td>Mandatory</td>
 </tr>
 <tr>
 <td>address_collection</td>
 <td>Where your parcel should be collected from (if appropriate)</td>
-<td></td>
+<td>Mandatory</td>
 </tr>
 <tr>
 <td>address_return</td>
 <td>Where you parcel should be returned to if there&#39;s a problem</td>
-<td></td>
+<td>Optional</td>
 </tr>
 </tbody></table>
 
