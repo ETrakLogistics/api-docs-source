@@ -817,58 +817,104 @@ On success a 200 response code is sent.
 
 ```json
 {
-    "id": "3260bbf8-e2f4-4a78-b719-e11c17d881f2",
-    "created": "2018-05-11 11:38:38",
-    "modified": "2018-05-11 11:38:38",
+    "id": "aab4fb51-9934-4529-8065-256cd297e456",
+    "created": "2018-09-11 12:37:10",
+    "modified": "2018-09-11 12:37:10",
     "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
     "service_id": "etrak_tracked",
-    "barcode": "ETYCL000000041",
-    "client_ref1": "richjohntest",
+    "barcode": "ETPML000000278",
+    "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
-    "webhook": "https://www.parcelmonkey.co.uk/webhook",
+    "batch": null,
+    "overlabel_scan": null,
+    "webhook": "https://www.yourwebsite.com/webhook",
+    "export_type": "permanent",
+    "reason_for_export": "sale",
+    "status": "booked",
+    "shipped": "N",
+    "meta": {
+    	"string_var1": "string1",
+    	"bool_var1": true,
+    	"int_var1": 0,
+    	"float_var1": 0.0,
+    },
+    "log": [
+        {
+            "message": "created",
+            "time": "2019-01-21 10:16:19"
+        },
+        {
+            "message": "Status change:  to book_onward_shipping",
+            "time": "2019-01-21 10:16:19"
+        }
+    ],
     "address_delivery": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
-        "district": ""
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": "",
+            "notes": "Leave with neighbour"
+  	},
+    "address_return": {
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": "",
+            "notes": ""
     },
     "address_collection": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
-        "district": ""
+    		"name": "Richard Barrett",
+    		"telephone": "01234567890",
+    		"email": "rich@parcelmonkey.com",
+    		"company": "Parcel Monkey",
+    		"line1": "Unit 21",
+    		"line2": "Tollgate",
+    		"line3": "Eastleigh",
+    		"city": "Chandlers Ford",
+    		"state": "Hampshire",
+    		"postcode": "SO53 3TG",
+    		"country": "GB",
+    		"district": "",
+            "notes": ""
     },
-    "address_return": {
-        "name": "Richard Barrett",
-        "company": "Parcel Monkey",
-        "telephone": "01234567890",
-        "email": "rich@parcelmonkey.com",
-        "line1": "Unit 21",
-        "line2": "Tollgate",
-        "line3": "Eastleigh",
-        "city": "Chandlers Ford",
-        "state": "Hampshire",
-        "postcode": "SO53 3TG",
-        "country": "GB",
-        "district": ""
-    }
+    "pieces": [
+        {
+            "id": "46832880-db17-4b4b-a0c8-bd20ce6cf507",
+            "weight": "1.00",
+            "length": "30.00",
+            "width": "6.00",
+            "height": "5.00",
+            "contents": [
+                {
+                    "description": "Book",
+                    "value": "0.512",
+                    "currency": "GBP",
+                    "hs_code": "1122334455",
+                    "quantity": "120",
+                    "country_of_origin": "GB"
+                }
+            ],
+            "checked_weight": "0.000",
+            "log": null
+        }
+    ]
 }
 ```
 
