@@ -1360,3 +1360,76 @@ On success a 200 response code is sent.
 
 
 
+# Tracking
+
+Tracking events belong to a consignment
+
+## Get Tracking Events
+
+```php
+<?
+
+$etrak = \etrak\etrak::instance()->setApiKey(YOUR_API_KEY);
+$barcode = 'ETXXX012345678';
+$deliveryPostcode = 'SW1 1AA';
+
+$response = \etrak\Track::getEvents($barcode, $deliveryPostcode);
+// Events are in $response->body
+
+
+?>
+```
+
+> Example JSON Response:
+
+```json
+[
+    {
+        "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "happened_at": "2018-10-18 07:08:00",
+        "message": "Item delivered",
+        "harmonised_status": "DELIVERED__OTHER",
+        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
+        "external_reference": "123456789",
+        "location": "SOUTH AFRICA"
+    },
+    {
+        "id": "a2766859-14b7-4a9b-8ed1-01a6d1d5a769",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "happened_at": "2018-09-28 05:08:00",
+        "message": "Scheduled for delivery but not completed - To be handeled",
+        "harmonised_status": "UNKNOWN__HAS_MESSAGE_AND_LOCATION",
+        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
+        "external_reference": "123456789",
+        "location": "SOUTH AFRICA"
+    },
+    {
+        "id": "a2393860-7848-4e3c-9109-628f0b5bb3bb",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "happened_at": "2018-09-26 01:51:00",
+        "message": "Departure to distribution network",
+        "harmonised_status": "DEPARTED_FROM_FACILITY__HAS_LOCATION",
+        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
+        "external_reference": "123456789",
+        "location": "United Kingdom"
+    }
+]
+```
+
+
+This method retrieves an array of tracking events for the given consignment barcode and delivery postcode.
+
+
+### Endpoint
+
+`GET https://etrak.io/api/Track/{barcode}/{deliveryPostcode}`
+
+URI Parameter | Description
+--------- | ------- | -----------
+barcode | The barcode of the consignment you wish to retrieve.
+deliveryPostcode | The delivery postcode of the consignment you wish to retrieve.
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
