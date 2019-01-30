@@ -319,6 +319,14 @@
               </ul>
           </li>
           <li>
+            <a href="#tracking" class="toc-h1 toc-link" data-title="tracking">Tracking</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-tracking-events" class="toc-h2 toc-link" data-title="get-tracking-events">Get Tracking Events</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -1479,6 +1487,79 @@ On success a 204 response code is sent.
 <tr>
 <td>id</td>
 <td>The ID of the consignment you wish to retrieve.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+<h1 id='tracking'>Tracking</h1>
+<p>Tracking events belong to a consignment</p>
+<h2 id='get-tracking-events'>Get Tracking Events</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?</span>
+
+<span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setApiKey</span><span class="p">(</span><span class="nx">YOUR_API_KEY</span><span class="p">);</span>
+<span class="nv">$barcode</span> <span class="o">=</span> <span class="s1">'ETXXX012345678'</span><span class="p">;</span>
+<span class="nv">$deliveryPostcode</span> <span class="o">=</span> <span class="s1">'SW1 1AA'</span><span class="p">;</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">\etrak\Track</span><span class="o">::</span><span class="na">getEvents</span><span class="p">(</span><span class="nv">$barcode</span><span class="p">,</span> <span class="nv">$deliveryPostcode</span><span class="p">);</span>
+<span class="c1">// Events are in $response-&gt;body
+</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e37bf14-b55a-4320-9651-542c1b35f9fc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd52e8e-b593-4a90-bb5d-9c5483b4ce50"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"happened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18 07:08:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item delivered"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"harmonised_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED__OTHER"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://onward.carrier.com/track?external_reference=123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOUTH AFRICA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a2766859-14b7-4a9b-8ed1-01a6d1d5a769"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd52e8e-b593-4a90-bb5d-9c5483b4ce50"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"happened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-28 05:08:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled for delivery but not completed - To be handeled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"harmonised_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN__HAS_MESSAGE_AND_LOCATION"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://onward.carrier.com/track?external_reference=123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOUTH AFRICA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a2393860-7848-4e3c-9109-628f0b5bb3bb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd52e8e-b593-4a90-bb5d-9c5483b4ce50"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"happened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-26 01:51:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Departure to distribution network"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"harmonised_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEPARTED_FROM_FACILITY__HAS_LOCATION"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://onward.carrier.com/track?external_reference=123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United Kingdom"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This method retrieves an array of tracking events for the given consignment barcode and delivery postcode.</p>
+<h3 id='endpoint-18'>Endpoint</h3>
+<p><code>GET https://etrak.io/api/Track/{barcode}/{deliveryPostcode}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>barcode</td>
+<td>The barcode of the consignment you wish to retrieve.</td>
+</tr>
+<tr>
+<td>deliveryPostcode</td>
+<td>The delivery postcode of the consignment you wish to retrieve.</td>
 </tr>
 </tbody></table>
 
