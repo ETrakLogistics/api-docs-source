@@ -225,6 +225,9 @@
                     <a href="#endpoints" class="toc-h2 toc-link" data-title="endpoints">Endpoints</a>
                   </li>
                   <li>
+                    <a href="#version" class="toc-h2 toc-link" data-title="version">Version</a>
+                  </li>
+                  <li>
                     <a href="#sandbox" class="toc-h2 toc-link" data-title="sandbox">Sandbox</a>
                   </li>
                   <li>
@@ -345,7 +348,10 @@
 <p>Sandbox: <code>https://sandbox.api.etrak.io/api/{service}</code>
 <br />
 Production: <code>https://api.etrak.io/api/{service}</code></p>
-<h2 id='sandbox'>Sandbox</h2>
+<h2 id='version'>Version</h2>
+<p>If you don&#39;t wish to use the PHP SDK, your requests should include a <code>version</code> header:</p>
+<pre class="highlight plaintext"><code>version: 1.0
+</code></pre><h2 id='sandbox'>Sandbox</h2>
 <p>eTrak has a Sandbox environment that mirrors the production environment for testing.</p>
 
 <p>The PHP SDK also supports the Sandbox (see the docs for details).</p>
