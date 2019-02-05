@@ -26,8 +26,13 @@ Sandbox: `https://sandbox.api.etrak.io/api/{service}`
 <br />
 Production: `https://api.etrak.io/api/{service}`
 
+## Version
 
+If you don't wish to use the PHP SDK, your requests should include a `version` header:
 
+```
+version: 1.0
+```
 
 ## Sandbox
 
