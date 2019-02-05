@@ -55,6 +55,7 @@ There's a PHP SDK available for this API. You can get it here: <br />
 # With shell, you can just pass the correct header with each request
 curl "https://api.etrak.io/api"
   -H "Authorization: apikey"
+  -H "version: 1.0"
 ```
 
 ```php
