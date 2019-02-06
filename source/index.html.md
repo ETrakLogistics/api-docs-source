@@ -1247,7 +1247,7 @@ This method creates a consignment.
 
 Attribute | Description | Notes
 --------- | ------- | -----------
-contract_id | The contract to book on | Mandatory
+contract_id | The contract to book on, get this from <a href="#list-all-contracts">listing contracts</a> | Mandatory
 service_id | The service you want to use. | Mandatory
 barcode | eTrak barcode | Specify your own (from your range) or "false" to be allocated one
 client_ref1 | Your own reference | Optional
