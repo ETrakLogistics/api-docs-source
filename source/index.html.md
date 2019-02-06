@@ -133,7 +133,7 @@ This method generates a <strong>temporary</strong> API key (that expires in 60 m
 
 ### Endpoint
 
-`POST https://etrak.io/api/AuthenticateUser`
+`POST https://api.etrak.io/api/AuthenticateUser`
 
 ### JSON Payload
 
@@ -199,7 +199,7 @@ This method generates a new API key (that expires in 100 years) by providing ano
 
 ### Endpoint
 
-`POST https://etrak.io/api/CreateApiKey`
+`POST https://api.etrak.io/api/CreateApiKey`
 
 ### JSON Payload
 
@@ -260,7 +260,7 @@ This method lists all users registered on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Users`
+`GET https://api.etrak.io/api/Users`
 
 <aside class="success">
 On success a 200 response code is sent.
@@ -300,7 +300,7 @@ This method retrieves a single user registered on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/User/{id}`
+`GET https://api.etrak.io/api/User/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -353,7 +353,7 @@ This method creates a user. Any field you specify in the JSON payload will be up
 
 ### Endpoint
 
-`POST https://etrak.io/api/User`
+`POST https://api.etrak.io/api/User`
 
 ### JSON Payload
 
@@ -412,7 +412,7 @@ This method updates a user. Any field you specify in the JSON payload will be up
 
 ### Endpoint
 
-`PUT https://etrak.io/api/User/{id}`
+`PUT https://api.etrak.io/api/User/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -449,7 +449,7 @@ This method deletes a user from your eTrak.io account.
 
 ### Endpoint
 
-`DELETE https://etrak.io/api/User/{id}`
+`DELETE https://api.etrak.io/api/User/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -510,7 +510,7 @@ This method retrieves your eTrak.io account details.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Account`
+`GET https://api.etrak.io/api/Account`
 
 
 <aside class="success">
@@ -570,7 +570,7 @@ This method updates your account details. Any field you specify in the JSON payl
 
 ### Endpoint
 
-`PUT https://etrak.io/api/Account`
+`PUT https://api.etrak.io/api/Account`
 
 
 ### JSON Payload
@@ -652,7 +652,7 @@ This method lists all contracts on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Contracts`
+`GET https://api.etrak.io/api/Contracts`
 
 
 <aside class="success">
@@ -692,7 +692,7 @@ This method retrieves a single contract on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Contract/{id}`
+`GET https://api.etrak.io/api/Contract/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -747,7 +747,7 @@ This method lists all users registered on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Users`
+`GET https://api.etrak.io/api/Users`
 
 <aside class="success">
 On success a 200 response code is sent.
@@ -787,7 +787,7 @@ This method retrieves a single user registered on your eTrak.io account.
 
 ### Endpoint
 
-`GET https://etrak.io/api/User/{id}`
+`GET https://api.etrak.io/api/User/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -930,7 +930,7 @@ This method retrieves a single consignment.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Consignment/{id}`
+`GET https://api.etrak.io/api/Consignment/{id}`
 
 URI Parameter | Description
 --------- | -------
@@ -1037,7 +1037,7 @@ array (
   ),
 );
 
-$etrak = \etrak\etrak::instance()->setApiKey(YOUR_API_KEY);
+$etrak = \etrak\etrak::instance()->setApiKey('YOUR_API_KEY');
 $r = \etrak\Consignment::create($data);
 print_r($r);exit;
 
@@ -1241,7 +1241,7 @@ This method creates a consignment.
 
 ### Endpoint
 
-`POST https://etrak.io/api/Consignment`
+`POST https://api.etrak.io/api/Consignment`
 
 ### JSON Payload
 
@@ -1289,7 +1289,7 @@ This method cancels a consignment (if it is not already shipped).
 
 ### Endpoint
 
-`DELETE https://etrak.io/api/Consignment/{id}`
+`DELETE https://api.etrak.io/api/Consignment/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -1344,7 +1344,7 @@ This method retrieves a single consignment.
 
 ### Endpoint
 
-`GET https://etrak.io/api/Label/{id}`
+`GET https://api.etrak.io/api/Label/{id}`
 
 URI Parameter | Description
 --------- | ------- | -----------
@@ -1429,7 +1429,7 @@ This method retrieves an array of tracking events for the given consignment barc
 
 ### Endpoint
 
-`GET https://etrak.io/api/Track/{barcode}/{deliveryPostcode}`
+`GET https://api.etrak.io/api/Track/{barcode}/{deliveryPostcode}`
 
 URI Parameter | Description
 --------- | ------- | -----------
