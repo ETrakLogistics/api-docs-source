@@ -59,7 +59,7 @@ curl "https://api.etrak.io/api"
 ```
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -88,7 +88,7 @@ You must replace <code>apikey</code> with your personal API key.
 
 
 ```php
-<?
+<?php
 
 $etrak = \etrak\etrak::instance();
 $r = \etrak\AuthenticateUser::create([
@@ -161,9 +161,9 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 
-$etrak = \etrak\etrak::instance()->setApiKey(YOUR_TEMPORARY_API_KEY);
+$etrak = \etrak\etrak::instance()->setApiKey('YOUR_TEMPORARY_API_KEY');
 $r = \etrak\ApiKey::create([
   'reference' => 'reference for this API key'
 ]);
@@ -235,7 +235,7 @@ Users are people who can log in and manage your eTrak.io account.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -277,7 +277,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -320,7 +320,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -379,7 +379,7 @@ On success a 201 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -439,7 +439,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -481,7 +481,7 @@ On success a 204 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -526,7 +526,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -621,7 +621,7 @@ Contracts represent the commercial agreements you have with eTrak.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -669,7 +669,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -722,7 +722,7 @@ Users are people who can log in and manage your eTrak.io account.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -764,7 +764,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -814,7 +814,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -843,7 +843,7 @@ On success a 200 response code is sent.
     	"string_var1": "string1",
     	"bool_var1": true,
     	"int_var1": 0,
-    	"float_var1": 0.0,
+    	"float_var1": 0.0
     },
     "log": [
         {
@@ -951,7 +951,7 @@ On success a 200 response code is sent.
 
 
 ```php
-<?
+<?php
 
 
 $data = 
@@ -1062,7 +1062,7 @@ print_r($r);exit;
     	"string_var1": "string1",
     	"bool_var1": true,
     	"int_var1": 0,
-    	"float_var1": 0.0,
+    	"float_var1": 0.0
     },
     "pieces": [
         {
@@ -1154,7 +1154,7 @@ print_r($r);exit;
     	"string_var1": "string1",
     	"bool_var1": true,
     	"int_var1": 0,
-    	"float_var1": 0.0,
+    	"float_var1": 0.0
     },
     "log": [
         {
@@ -1279,7 +1279,7 @@ On success a 201 response code is sent.
 
 
 ```php
-<?
+<?php
 // tbc
 ?>
 ```
@@ -1315,10 +1315,10 @@ Labels belong to a consignment.
 
 
 ```php
-<?
+<?php
 
-$etrak = \etrak\etrak::instance()->setApiKey(YOUR_API_KEY);
-$consignment_id = YOUR_CONSIGNMENT_ID;
+$etrak = \etrak\etrak::instance()->setApiKey('YOUR_API_KEY');
+$consignment_id = 'YOUR_CONSIGNMENT_ID';
 
 $response = \etrak\Label::get($consignment_id);
 header("Content-type:application/pdf");
@@ -1373,9 +1373,9 @@ Tracking events belong to a consignment
 ## Get Tracking Events
 
 ```php
-<?
+<?php
 
-$etrak = \etrak\etrak::instance()->setApiKey(YOUR_API_KEY);
+$etrak = \etrak\etrak::instance()->setApiKey('YOUR_API_KEY');
 $barcode = 'ETXXX012345678';
 $deliveryPostcode = 'SW1 1AA';
 
