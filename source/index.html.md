@@ -1309,7 +1309,7 @@ On success a 204 response code is sent.
 
 # Label
 
-Labels belong to a consignment.
+N.B. Labels belong to a `consignment`. They don't belong to `pieces`
 
 ## Get A Label
 
@@ -1339,7 +1339,7 @@ echo base64_decode($response->body->data);
 ```
 
 
-This method retrieves a single consignment.
+This method retrieves a label for a single consignment.
 
 
 ### Endpoint
@@ -1348,7 +1348,7 @@ This method retrieves a single consignment.
 
 URI Parameter | Description
 ------------- | -----------
-id            | The ID of the consignment you wish to retrieve.
+id            | The ID of the consignment whose label you wish to retrieve.
 format        | The format of the label, possible values are `inline` or `base64`
 
 ### Responses
