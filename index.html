@@ -1483,7 +1483,7 @@ On success a 204 response code is sent.
 </span></code></pre>
 <p>This method retrieves a single consignment.</p>
 <h3 id='endpoint-17'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Label/{id}</code></p>
+<p><code>GET https://api.etrak.io/api/Label/{id}/{format}</code></p>
 
 <table><thead>
 <tr>
@@ -1494,6 +1494,26 @@ On success a 204 response code is sent.
 <tr>
 <td>id</td>
 <td>The ID of the consignment you wish to retrieve.</td>
+</tr>
+<tr>
+<td>format</td>
+<td>The format of the label, possible values are <code>inline</code> or <code>base64</code></td>
+</tr>
+</tbody></table>
+<h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>inline</td>
+<td>Raw PDF data</td>
+</tr>
+<tr>
+<td>base64</td>
+<td>JSON response with <code>data</code> property containing base64 encoded string of the PDF label</td>
 </tr>
 </tbody></table>
 
