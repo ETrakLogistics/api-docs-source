@@ -1347,12 +1347,19 @@ This method retrieves a single consignment.
 `GET https://api.etrak.io/api/Label/{id}/{format}`
 
 URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the consignment you wish to retrieve.
-format | The format of the label, possible values are `inline` or `base64`
+------------- | -----------
+id            | The ID of the consignment you wish to retrieve.
+format        | The format of the label, possible values are `inline` or `base64`
+
+### Responses
+
+Format | Description
+------ | -----------
+inline | Raw PDF data
+base64 | JSON response with `data` property containing base64 encoded string of the PDF label 
 
 <aside class="success">
-On success a 200 response code is sent. See to the right for a sample response if the format param is base64.
+On success a 200 response code is sent.
 </aside>
 
 
