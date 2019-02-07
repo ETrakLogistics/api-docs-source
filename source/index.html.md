@@ -1344,14 +1344,15 @@ This method retrieves a single consignment.
 
 ### Endpoint
 
-`GET https://api.etrak.io/api/Label/{id}`
+`GET https://api.etrak.io/api/Label/{id}/{format}`
 
 URI Parameter | Description
 --------- | ------- | -----------
 id | The ID of the consignment you wish to retrieve.
+format | The format of the label, possible values are `inline` or `base64`
 
 <aside class="success">
-On success a 200 response code is sent.
+On success a 200 response code is sent. See to the right for a sample response if the format param is base64.
 </aside>
 
 
