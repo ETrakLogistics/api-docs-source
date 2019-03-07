@@ -1412,7 +1412,7 @@ On success a 200 response code is sent.
 </tr>
 <tr>
 <td>pieces</td>
-<td>Pieces in your consignment</td>
+<td>Pieces in your consignment. Whilst the data format allows for multi-piece consignments, eTrak currently only supports single pieces</td>
 <td>Mandatory</td>
 </tr>
 <tr>
@@ -1459,7 +1459,7 @@ On success a 201 response code is sent.
 On success a 204 response code is sent.
 </aside>
 <h1 id='label'>Label</h1>
-<p>Labels belong to a consignment.</p>
+<p>N.B. Labels belong to a <code>consignment</code>. They don&#39;t belong to <code>pieces</code></p>
 <h2 id='get-a-label'>Get A Label</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$etrak</span> <span class="o">=</span> <span class="nx">\etrak\etrak</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setApiKey</span><span class="p">(</span><span class="s1">'YOUR_API_KEY'</span><span class="p">);</span>
@@ -1481,7 +1481,7 @@ On success a 204 response code is sent.
   </span><span class="s2">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjcKJeLjz9MKNiAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW5..."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This method retrieves a single consignment.</p>
+<p>This method retrieves a label for a single consignment.</p>
 <h3 id='endpoint-17'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Label/{id}/{format}</code></p>
 
@@ -1493,7 +1493,7 @@ On success a 204 response code is sent.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>The ID of the consignment you wish to retrieve.</td>
+<td>The ID of the consignment whose label you wish to retrieve.</td>
 </tr>
 <tr>
 <td>format</td>
