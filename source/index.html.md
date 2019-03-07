@@ -1257,7 +1257,7 @@ batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
 export_type | permanent or temporary | Optional
 reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required if crossing customs union, else optional
-pieces | Pieces in your consignment | Mandatory
+pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, eTrak currently only supports single pieces | Mandatory
 address_delivery | Where you want your parcel delivered to | Mandatory
 address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
 address_return | Where you parcel should be returned to if there's a problem | Optional
