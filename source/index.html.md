@@ -40,12 +40,12 @@ eTrak has a Sandbox environment that mirrors the production environment for test
 
 The PHP SDK also supports the Sandbox (see the docs for details).
 
-
+<!--
 ## PHP SDK
 
 There's a PHP SDK available for this API. You can get it here: <br />
 <a href="https://github.com/ParcelMonkeyGroup/etrak-php">https://github.com/ParcelMonkeyGroup/etrak-php</a>.
-
+-->
 
 # Authentication
 
@@ -92,7 +92,7 @@ You must replace <code>apikey</code> with your personal API key.
 
 $etrak = \etrak\etrak::instance();
 $r = \etrak\AuthenticateUser::create([
-  'email' => 'rich@parcelmonkey.com',
+  'email' => 'john@example.com',
   'password' => 'hello1'
 ]);
 print_r($r);
@@ -105,7 +105,7 @@ print_r($r);
 
 ```json
 {
-  "email": "rich@parcelmonkey.com",
+  "email": "john@example.com",
   "password": "pa55word"
 }
 ```
@@ -248,8 +248,8 @@ Users are people who can log in and manage your eTrak.io account.
         "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
         "created": "2018-03-27 16:17:30",
         "modified": "2018-03-27 16:17:30",
-        "email": "rich@parcelmonkey.com",
-        "name": "Richard Barrett"
+        "email": "john@example.com",
+        "name": "John Smith"
     }
 ]
 ```
@@ -289,8 +289,8 @@ On success a 200 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 16:17:30",
     "modified": "2018-03-27 16:17:30",
-    "email": "rich@parcelmonkey.com",
-    "name": "Richard Barrett"
+    "email": "john@example.com",
+    "name": "John Smith"
 }
 ```
 
@@ -329,9 +329,9 @@ On success a 200 response code is sent.
 
 ```json
 {
-    "email": "rich1@parcelmonkey.com",
+    "email": "john1@example.com",
     "password": "hello1",
-    "name": "Rich Barrett"
+    "name": "John Smith"
 }
 ```
 
@@ -342,8 +342,8 @@ On success a 200 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 20:31:43",
     "modified": "2018-03-27 20:31:43",
-    "email": "rich3@parcelmonkey.com",
-    "name": "Rich Barrett"
+    "email": "john3@example.com",
+    "name": "John Smith"
 }
 ```
 
@@ -388,9 +388,9 @@ On success a 201 response code is sent.
 
 ```json
 {
-    "email": "rich@parcelmonkey.com",
+    "email": "john@example.com",
     "password": "hello1",
-    "name": "Rich Barrett"
+    "name": "John Smith"
 }
 ```
 
@@ -401,8 +401,8 @@ On success a 201 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 16:17:30",
     "modified": "2018-03-27 20:17:30",
-    "email": "rich@parcelmonkey.com",
-    "name": "Rich Barrett"
+    "email": "john@example.com",
+    "name": "John Smith"
 }
 ```
 
@@ -493,14 +493,14 @@ On success a 204 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 16:04:58",
     "modified": "2018-03-27 21:10:23",
-    "name": "Parcel Monkey UK",
-    "company": "Parcel Monkey Ltd",
-    "address1": "Unit 21",
-    "address2": "East Links",
-    "address3": "Tollgate",
-    "town": "Chandlers Ford",
-    "county": "Hampshire",
-    "postcode": "SO53 3TG",
+    "name": "ExampleCo UK",
+    "company": "ExampleCo Ltd",
+    "address1": "Unit 1",
+    "address2": "Example Street",
+    "address3": "Example Street 2",
+    "town": "Example City",
+    "county": "Examplecounty",
+    "postcode": "AB1 1AB",
     "country": "GB"
 }
 ```
@@ -535,12 +535,12 @@ On success a 200 response code is sent.
 
 ```json
 {
-    "address1": "Unit 21",
-    "address2": "East Links",
-    "address3": "Tollgate",
-    "town": "Chandlers Ford",
-    "county": "Hampshire",
-    "postcode": "SO53 3TG",
+    "address1": "Unit 1",
+    "address2": "Example Street",
+    "address3": "Example Street 2",
+    "town": "Example City",
+    "county": "Examplecounty",
+    "postcode": "AB1 1AB",
     "country": "GB"
 }
 ```
@@ -552,14 +552,14 @@ On success a 200 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 16:04:58",
     "modified": "2018-03-27 21:10:23",
-    "name": "Parcel Monkey UK",
-    "company": "Parcel Monkey Ltd",
-    "address1": "Unit 21",
-    "address2": "East Links",
-    "address3": "Tollgate",
-    "town": "Chandlers Ford",
-    "county": "Hampshire",
-    "postcode": "SO53 3TG",
+    "name": "ExampleCo UK",
+    "company": "ExampleCo Ltd",
+    "address1": "Unit 1",
+    "address2": "Example Street",
+    "address3": "Example Street 2",
+    "town": "Example City",
+    "county": "Examplecounty",
+    "postcode": "AB1 1AB",
     "country": "GB"
 }
 ```
@@ -735,8 +735,8 @@ Users are people who can log in and manage your eTrak.io account.
         "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
         "created": "2018-03-27 16:17:30",
         "modified": "2018-03-27 16:17:30",
-        "email": "rich@parcelmonkey.com",
-        "name": "Richard Barrett"
+        "email": "john@example.com",
+        "name": "John Smith"
     }
 ]
 ```
@@ -776,8 +776,8 @@ On success a 200 response code is sent.
     "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
     "created": "2018-03-27 16:17:30",
     "modified": "2018-03-27 16:17:30",
-    "email": "rich@parcelmonkey.com",
-    "name": "Richard Barrett"
+    "email": "john@example.com",
+    "name": "John Smith"
 }
 ```
 
@@ -856,46 +856,46 @@ On success a 200 response code is sent.
         }
     ],
     "address_delivery": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": "Leave with neighbour"
   	},
     "address_return": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
     },
     "address_collection": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
@@ -966,7 +966,7 @@ array (
   'export_type' => 'permanent',
   'reason_for_export' => 'sale',
   'meta' => [],
-  'webhook' => 'https://www.parcelmonkey.co.uk/webhook',
+  'webhook' => 'https://www.example.co.uk/webhook',
   'pieces' => 
   array ( 
     array (
@@ -989,16 +989,16 @@ array (
   ),
   'address_delivery' => 
   array (
-    'name' => 'Richard Barrett',
+    'name' => 'John Smith',
     'telephone' => '01234567890',
-    'email' => 'rich@parcelmonkey.com',
-    'company' => 'Parcel Monkey',
-    'line1' => 'Unit 21',
-    'line2' => 'Tollgate',
-    'line3' => 'Eastleigh',
-    'city' => 'Chandlers Ford',
-    'state' => 'Hampshire',
-    'postcode' => 'SO53 3TG',
+    'email' => 'john@example.com',
+    'company' => 'ExampleCo',
+    'line1' => 'Unit 1',
+    'line2' => 'Example Street 2',
+    'line3' => 'Exampletown',
+    'city' => 'Example City',
+    'state' => 'Examplecounty',
+    'postcode' => 'AB1 1AB',
     'country' => 'GB',
     'district' => '',
     'notes' => '',
@@ -1021,16 +1021,16 @@ array (
   ),
   'address_collection' => 
   array (
-    'name' => 'Richard Barrett',
+    'name' => 'John Smith',
     'telephone' => '01234567890',
-    'email' => 'rich@parcelmonkey.com',
-    'company' => 'Parcel Monkey',
-    'line1' => 'Unit 21',
-    'line2' => 'Tollgate',
-    'line3' => 'Eastleigh',
-    'city' => 'Chandlers Ford',
-    'state' => 'Hampshire',
-    'postcode' => 'SO53 3TG',
+    'email' => 'john@example.com',
+    'company' => 'ExampleCo',
+    'line1' => 'Unit 1',
+    'line2' => 'Example Street 2',
+    'line3' => 'Exampletown',
+    'city' => 'Example City',
+    'state' => 'Examplecounty',
+    'postcode' => 'AB1 1AB',
     'country' => 'GB',
     'district' => '',
     'notes' => '',
@@ -1083,46 +1083,46 @@ print_r($r);exit;
         }
     ],
   	"address_delivery": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": "Leave with neighbour"
   	},
     "address_return": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
     },
     "address_collection": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
@@ -1167,46 +1167,46 @@ print_r($r);exit;
         }
     ],
     "address_delivery": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": "Leave with neighbour"
   	},
     "address_return": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
     },
     "address_collection": {
-    		"name": "Richard Barrett",
+    		"name": "John Smith",
     		"telephone": "01234567890",
-    		"email": "rich@parcelmonkey.com",
-    		"company": "Parcel Monkey",
-    		"line1": "Unit 21",
-    		"line2": "Tollgate",
-    		"line3": "Eastleigh",
-    		"city": "Chandlers Ford",
-    		"state": "Hampshire",
-    		"postcode": "SO53 3TG",
+    		"email": "john@example.com",
+    		"company": "ExampleCo",
+    		"line1": "Unit 1",
+    		"line2": "Example Street 2",
+    		"line3": "Exampletown",
+    		"city": "Example City",
+    		"state": "Examplecounty",
+    		"postcode": "AB1 1AB",
     		"country": "GB",
     		"district": "",
             "notes": ""
