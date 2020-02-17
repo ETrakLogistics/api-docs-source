@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href="https://etrak.io">Sign Up for a Developer Key</a>
-  
+
 includes:
   - errors
 
@@ -223,591 +223,6 @@ On success a 201 response code is sent.
 
 
 
-# Users
-
-Users are people who can log in and manage your eTrak.io account.
-
-<aside class="notice">
-  You can manage users from your eTrak.io account online too.
-</aside>
-
-## List All Users
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-[
-    {
-        "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-        "created": "2018-03-27 16:17:30",
-        "modified": "2018-03-27 16:17:30",
-        "email": "john@example.com",
-        "name": "John Smith"
-    }
-]
-```
-
-
-This method lists all users registered on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/Users`
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-## Get A User
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:17:30",
-    "modified": "2018-03-27 16:17:30",
-    "email": "john@example.com",
-    "name": "John Smith"
-}
-```
-
-
-This method retrieves a single user registered on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/User/{id}`
-
-URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the user you wish to retrieve.
-
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-## Create A User
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Request:
-
-```json
-{
-    "email": "john1@example.com",
-    "password": "hello1",
-    "name": "John Smith"
-}
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 20:31:43",
-    "modified": "2018-03-27 20:31:43",
-    "email": "john3@example.com",
-    "name": "John Smith"
-}
-```
-
-
-This method creates a user. Any field you specify in the JSON payload will be updated.
-
-
-### Endpoint
-
-`POST https://api.etrak.io/api/User`
-
-### JSON Payload
-
-Attribute | Description
---------- | ------- | -----------
-email | Set the user's email.
-password | Set the user's password.
-name | Set the user's name.
-
-
-<aside class="success">
-On success a 201 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-## Update A User
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Request:
-
-```json
-{
-    "email": "john@example.com",
-    "password": "hello1",
-    "name": "John Smith"
-}
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:17:30",
-    "modified": "2018-03-27 20:17:30",
-    "email": "john@example.com",
-    "name": "John Smith"
-}
-```
-
-
-This method updates a user. Any field you specify in the JSON payload will be updated.
-
-
-### Endpoint
-
-`PUT https://api.etrak.io/api/User/{id}`
-
-URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the user you wish to retrieve.
-
-### JSON Payload
-
-Attribute | Description
---------- | ------- | -----------
-email | Update the user's email.
-password | Update the user's password.
-name | Update the user's name.
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-## Delete A User
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-This method deletes a user from your eTrak.io account.
-
-
-### Endpoint
-
-`DELETE https://api.etrak.io/api/User/{id}`
-
-URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the user you wish to delete.
-
-<aside class="success">
-On success a 204 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Account
-
-
-## Get Your Account Info
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:04:58",
-    "modified": "2018-03-27 21:10:23",
-    "name": "ExampleCo UK",
-    "company": "ExampleCo Ltd",
-    "address1": "Unit 1",
-    "address2": "Example Street",
-    "address3": "Example Street 2",
-    "town": "Example City",
-    "county": "Examplecounty",
-    "postcode": "AB1 1AB",
-    "country": "GB"
-}
-```
-
-This method retrieves your eTrak.io account details.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/Account`
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-## Update Your Account
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Request:
-
-```json
-{
-    "address1": "Unit 1",
-    "address2": "Example Street",
-    "address3": "Example Street 2",
-    "town": "Example City",
-    "county": "Examplecounty",
-    "postcode": "AB1 1AB",
-    "country": "GB"
-}
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:04:58",
-    "modified": "2018-03-27 21:10:23",
-    "name": "ExampleCo UK",
-    "company": "ExampleCo Ltd",
-    "address1": "Unit 1",
-    "address2": "Example Street",
-    "address3": "Example Street 2",
-    "town": "Example City",
-    "county": "Examplecounty",
-    "postcode": "AB1 1AB",
-    "country": "GB"
-}
-```
-
-
-This method updates your account details. Any field you specify in the JSON payload will be updated.
-
-
-### Endpoint
-
-`PUT https://api.etrak.io/api/Account`
-
-
-### JSON Payload
-
-Attribute | Description
---------- | ------- | -----------
-address1 | Update your invoicing address.
-address2 | Update your invoicing address.
-address3 | Update your invoicing address.
-town | Update your invoicing address.
-county | Update your invoicing address.
-postcode | Update your invoicing address.
-country | Update your invoicing address.
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Contracts
-
-Contracts represent the commercial agreements you have with eTrak.
-
-## List All Contracts
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-[
-    {
-        "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-        "created": "2018-03-27 16:34:02",
-        "modified": "2018-03-27 16:34:02",
-        "name": "initial contract",
-        "status": "active"
-    },
-    {
-        "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-        "created": "2018-03-27 16:47:20",
-        "modified": "2018-03-27 16:47:20",
-        "name": "second contract",
-        "status": "active"
-    }
-]
-```
-
-This method lists all contracts on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/Contracts`
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-## Get A Contract
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:34:02",
-    "modified": "2018-03-27 16:34:02",
-    "name": "initial contract",
-    "status": "active"
-}
-```
-
-
-This method retrieves a single contract on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/Contract/{id}`
-
-URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the contract you wish to retrieve.
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-# Users
-
-Users are people who can log in and manage your eTrak.io account.
-
-<aside class="notice">
-  You can manage users from your eTrak.io account online too.
-</aside>
-
-## List All Users
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-[
-    {
-        "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-        "created": "2018-03-27 16:17:30",
-        "modified": "2018-03-27 16:17:30",
-        "email": "john@example.com",
-        "name": "John Smith"
-    }
-]
-```
-
-
-This method lists all users registered on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/Users`
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-## Get A User
-
-
-```php
-<?php
-// tbc
-?>
-```
-
-> Example JSON Response:
-
-```json
-{
-    "id": "c87ea71e-e03b-4d9f-94aa-13ba91b50eea",
-    "created": "2018-03-27 16:17:30",
-    "modified": "2018-03-27 16:17:30",
-    "email": "john@example.com",
-    "name": "John Smith"
-}
-```
-
-
-This method retrieves a single user registered on your eTrak.io account.
-
-
-### Endpoint
-
-`GET https://api.etrak.io/api/User/{id}`
-
-URI Parameter | Description
---------- | ------- | -----------
-id | The ID of the user you wish to retrieve.
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
 # Consignments
 
 ## Get A Consignment
@@ -954,7 +369,7 @@ On success a 200 response code is sent.
 <?php
 
 
-$data = 
+$data =
 array (
   'contract_id' => '641b4b46-d0fe-4e76-b7e9-ce7754c26955',
   'service_id' => 'etrak_tracked',
@@ -967,15 +382,15 @@ array (
   'reason_for_export' => 'sale',
   'meta' => [],
   'webhook' => 'https://www.example.co.uk/webhook',
-  'pieces' => 
-  array ( 
+  'pieces' =>
+  array (
     array (
       'weight' => '0.12',
       'length' => '1',
       'width' => '2',
       'height' => '3',
-      'contents' => 
-      array ( 
+      'contents' =>
+      array (
         array (
           'description' => 'book',
           'value' => '10.00',
@@ -987,7 +402,7 @@ array (
       ),
     ),
   ),
-  'address_delivery' => 
+  'address_delivery' =>
   array (
     'name' => 'John Smith',
     'telephone' => '01234567890',
@@ -1003,7 +418,7 @@ array (
     'district' => '',
     'notes' => '',
   ),
-  'address_return' => 
+  'address_return' =>
   array (
     'name' => 'Reception',
     'telephone' => '+33 1 53 93 55 00',
@@ -1019,7 +434,7 @@ array (
     'district' => '',
     'notes' => '',
   ),
-  'address_collection' => 
+  'address_collection' =>
   array (
     'name' => 'John Smith',
     'telephone' => '01234567890',
@@ -1356,7 +771,7 @@ format        | The format of the label, possible values are `inline` or `base64
 Format | Description
 ------ | -----------
 inline | Raw PDF data
-base64 | JSON response with `data` property containing base64 encoded string of the PDF label 
+base64 | JSON response with `data` property containing base64 encoded string of the PDF label
 
 <aside class="success">
 On success a 200 response code is sent.
