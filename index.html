@@ -244,59 +244,6 @@
               </ul>
           </li>
           <li>
-            <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#list-all-users" class="toc-h2 toc-link" data-title="list-all-users">List All Users</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-user" class="toc-h2 toc-link" data-title="get-a-user">Get A User</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-user" class="toc-h2 toc-link" data-title="create-a-user">Create A User</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="update-a-user">Update A User</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-user" class="toc-h2 toc-link" data-title="delete-a-user">Delete A User</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#account" class="toc-h1 toc-link" data-title="account">Account</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-your-account-info" class="toc-h2 toc-link" data-title="get-your-account-info">Get Your Account Info</a>
-                  </li>
-                  <li>
-                    <a href="#update-your-account" class="toc-h2 toc-link" data-title="update-your-account">Update Your Account</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#contracts" class="toc-h1 toc-link" data-title="contracts">Contracts</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#list-all-contracts" class="toc-h2 toc-link" data-title="list-all-contracts">List All Contracts</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-contract" class="toc-h2 toc-link" data-title="get-a-contract">Get A Contract</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#users-2" class="toc-h1 toc-link" data-title="users">Users</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#list-all-users-2" class="toc-h2 toc-link" data-title="list-all-users">List All Users</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-user-2" class="toc-h2 toc-link" data-title="get-a-user">Get A User</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#consignments" class="toc-h1 toc-link" data-title="consignments">Consignments</a>
               <ul class="toc-list-h2">
                   <li>
@@ -503,445 +450,6 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 201 response code is sent.
 </aside>
-<h1 id='users'>Users</h1>
-<p>Users are people who can log in and manage your eTrak.io account.</p>
-
-<aside class="notice">
-  You can manage users from your eTrak.io account online too.
-</aside>
-<h2 id='list-all-users'>List All Users</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This method lists all users registered on your eTrak.io account.</p>
-<h3 id='endpoint-3'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Users</code></p>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='get-a-user'>Get A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method retrieves a single user registered on your eTrak.io account.</p>
-<h3 id='endpoint-4'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/User/{id}</code></p>
-
-<table><thead>
-<tr>
-<th>URI Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the user you wish to retrieve.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='create-a-user'>Create A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Request:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john1@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:31:43"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:31:43"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john3@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method creates a user. Any field you specify in the JSON payload will be updated.</p>
-<h3 id='endpoint-5'>Endpoint</h3>
-<p><code>POST https://api.etrak.io/api/User</code></p>
-<h3 id='json-payload-3'>JSON Payload</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>Set the user&#39;s email.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Set the user&#39;s password.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Set the user&#39;s name.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 201 response code is sent.
-</aside>
-<h2 id='update-a-user'>Update A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Request:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 20:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method updates a user. Any field you specify in the JSON payload will be updated.</p>
-<h3 id='endpoint-6'>Endpoint</h3>
-<p><code>PUT https://api.etrak.io/api/User/{id}</code></p>
-
-<table><thead>
-<tr>
-<th>URI Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the user you wish to retrieve.</td>
-</tr>
-</tbody></table>
-<h3 id='json-payload-4'>JSON Payload</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email</td>
-<td>Update the user&#39;s email.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Update the user&#39;s password.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Update the user&#39;s name.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='delete-a-user'>Delete A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<p>This method deletes a user from your eTrak.io account.</p>
-<h3 id='endpoint-7'>Endpoint</h3>
-<p><code>DELETE https://api.etrak.io/api/User/{id}</code></p>
-
-<table><thead>
-<tr>
-<th>URI Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the user you wish to delete.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 204 response code is sent.
-</aside>
-<h1 id='account'>Account</h1><h2 id='get-your-account-info'>Get Your Account Info</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:04:58"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 21:10:23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo UK"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo Ltd"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method retrieves your eTrak.io account details.</p>
-<h3 id='endpoint-8'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Account</code></p>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='update-your-account'>Update Your Account</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Request:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:04:58"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 21:10:23"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo UK"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo Ltd"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method updates your account details. Any field you specify in the JSON payload will be updated.</p>
-<h3 id='endpoint-9'>Endpoint</h3>
-<p><code>PUT https://api.etrak.io/api/Account</code></p>
-<h3 id='json-payload-5'>JSON Payload</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>address1</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>address2</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>address3</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>town</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>county</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>postcode</td>
-<td>Update your invoicing address.</td>
-</tr>
-<tr>
-<td>country</td>
-<td>Update your invoicing address.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h1 id='contracts'>Contracts</h1>
-<p>Contracts represent the commercial agreements you have with eTrak.</p>
-<h2 id='list-all-contracts'>List All Contracts</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial contract"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:47:20"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:47:20"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"second contract"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This method lists all contracts on your eTrak.io account.</p>
-<h3 id='endpoint-10'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Contracts</code></p>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='get-a-contract'>Get A Contract</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:34:02"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initial contract"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method retrieves a single contract on your eTrak.io account.</p>
-<h3 id='endpoint-11'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Contract/{id}</code></p>
-
-<table><thead>
-<tr>
-<th>URI Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the contract you wish to retrieve.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h1 id='users-2'>Users</h1>
-<p>Users are people who can log in and manage your eTrak.io account.</p>
-
-<aside class="notice">
-  You can manage users from your eTrak.io account online too.
-</aside>
-<h2 id='list-all-users-2'>List All Users</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This method lists all users registered on your eTrak.io account.</p>
-<h3 id='endpoint-12'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/Users</code></p>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-<h2 id='get-a-user-2'>Get A User</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="c1">// tbc
-</span><span class="cp">?&gt;</span>
-</code></pre>
-<blockquote>
-<p>Example JSON Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c87ea71e-e03b-4d9f-94aa-13ba91b50eea"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-27 16:17:30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This method retrieves a single user registered on your eTrak.io account.</p>
-<h3 id='endpoint-13'>Endpoint</h3>
-<p><code>GET https://api.etrak.io/api/User/{id}</code></p>
-
-<table><thead>
-<tr>
-<th>URI Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>The ID of the user you wish to retrieve.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
 <h1 id='consignments'>Consignments</h1><h2 id='get-a-consignment'>Get A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
@@ -1051,7 +559,7 @@ On success a 200 response code is sent.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method retrieves a single consignment.</p>
-<h3 id='endpoint-14'>Endpoint</h3>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Consignment/{id}</code></p>
 
 <table><thead>
@@ -1072,7 +580,7 @@ On success a 200 response code is sent.
 <h2 id='create-a-consignment'>Create A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 
-<span class="nv">$data</span> <span class="o">=</span> 
+<span class="nv">$data</span> <span class="o">=</span>
 <span class="k">array</span> <span class="p">(</span>
   <span class="s1">'contract_id'</span> <span class="o">=&gt;</span> <span class="s1">'641b4b46-d0fe-4e76-b7e9-ce7754c26955'</span><span class="p">,</span>
   <span class="s1">'service_id'</span> <span class="o">=&gt;</span> <span class="s1">'etrak_tracked'</span><span class="p">,</span>
@@ -1085,15 +593,15 @@ On success a 200 response code is sent.
   <span class="s1">'reason_for_export'</span> <span class="o">=&gt;</span> <span class="s1">'sale'</span><span class="p">,</span>
   <span class="s1">'meta'</span> <span class="o">=&gt;</span> <span class="p">[],</span>
   <span class="s1">'webhook'</span> <span class="o">=&gt;</span> <span class="s1">'https://www.example.co.uk/webhook'</span><span class="p">,</span>
-  <span class="s1">'pieces'</span> <span class="o">=&gt;</span> 
-  <span class="k">array</span> <span class="p">(</span> 
+  <span class="s1">'pieces'</span> <span class="o">=&gt;</span>
+  <span class="k">array</span> <span class="p">(</span>
     <span class="k">array</span> <span class="p">(</span>
       <span class="s1">'weight'</span> <span class="o">=&gt;</span> <span class="s1">'0.12'</span><span class="p">,</span>
       <span class="s1">'length'</span> <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
       <span class="s1">'width'</span> <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
       <span class="s1">'height'</span> <span class="o">=&gt;</span> <span class="s1">'3'</span><span class="p">,</span>
-      <span class="s1">'contents'</span> <span class="o">=&gt;</span> 
-      <span class="k">array</span> <span class="p">(</span> 
+      <span class="s1">'contents'</span> <span class="o">=&gt;</span>
+      <span class="k">array</span> <span class="p">(</span>
         <span class="k">array</span> <span class="p">(</span>
           <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'book'</span><span class="p">,</span>
           <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'10.00'</span><span class="p">,</span>
@@ -1105,7 +613,7 @@ On success a 200 response code is sent.
       <span class="p">),</span>
     <span class="p">),</span>
   <span class="p">),</span>
-  <span class="s1">'address_delivery'</span> <span class="o">=&gt;</span> 
+  <span class="s1">'address_delivery'</span> <span class="o">=&gt;</span>
   <span class="k">array</span> <span class="p">(</span>
     <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'John Smith'</span><span class="p">,</span>
     <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'01234567890'</span><span class="p">,</span>
@@ -1121,7 +629,7 @@ On success a 200 response code is sent.
     <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
     <span class="s1">'notes'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'address_return'</span> <span class="o">=&gt;</span> 
+  <span class="s1">'address_return'</span> <span class="o">=&gt;</span>
   <span class="k">array</span> <span class="p">(</span>
     <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Reception'</span><span class="p">,</span>
     <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'+33 1 53 93 55 00'</span><span class="p">,</span>
@@ -1137,7 +645,7 @@ On success a 200 response code is sent.
     <span class="s1">'district'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
     <span class="s1">'notes'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'address_collection'</span> <span class="o">=&gt;</span> 
+  <span class="s1">'address_collection'</span> <span class="o">=&gt;</span>
   <span class="k">array</span> <span class="p">(</span>
     <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'John Smith'</span><span class="p">,</span>
     <span class="s1">'telephone'</span> <span class="o">=&gt;</span> <span class="s1">'01234567890'</span><span class="p">,</span>
@@ -1351,9 +859,9 @@ On success a 200 response code is sent.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method creates a consignment.</p>
-<h3 id='endpoint-15'>Endpoint</h3>
+<h3 id='endpoint-4'>Endpoint</h3>
 <p><code>POST https://api.etrak.io/api/Consignment</code></p>
-<h3 id='json-payload-6'>JSON Payload</h3>
+<h3 id='json-payload-3'>JSON Payload</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1441,7 +949,7 @@ On success a 201 response code is sent.
 </span><span class="cp">?&gt;</span>
 </code></pre>
 <p>This method cancels a consignment (if it is not already shipped).</p>
-<h3 id='endpoint-16'>Endpoint</h3>
+<h3 id='endpoint-5'>Endpoint</h3>
 <p><code>DELETE https://api.etrak.io/api/Consignment/{id}</code></p>
 
 <table><thead>
@@ -1483,7 +991,7 @@ On success a 204 response code is sent.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method retrieves a label for a single consignment.</p>
-<h3 id='endpoint-17'>Endpoint</h3>
+<h3 id='endpoint-6'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Label/{id}/{format}</code></p>
 
 <table><thead>
@@ -1572,7 +1080,7 @@ On success a 200 response code is sent.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This method retrieves an array of tracking events for the given consignment barcode and delivery postcode.</p>
-<h3 id='endpoint-18'>Endpoint</h3>
+<h3 id='endpoint-7'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Track/{barcode}/{deliveryPostcode}</code></p>
 
 <table><thead>
