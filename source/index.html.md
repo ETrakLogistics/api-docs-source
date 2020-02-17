@@ -26,6 +26,20 @@ Sandbox: `https://sandbox.api.etrak.io/api/{service}`
 <br />
 Production: `https://api.etrak.io/api/{service}`
 
+## Content-type
+
+All requests to the ETrak API should include the header
+
+```
+Accept: application/json
+```
+
+All responses from the ETrak API have the header
+
+```
+Content-Type: application/json
+```
+
 ## Version
 
 If you don't wish to use the PHP SDK, your requests should include a `version` header:
