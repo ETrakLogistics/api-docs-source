@@ -94,101 +94,89 @@ curl "https://api.etrak.io/api"
 ```json
 {
     "id": "aab4fb51-9934-4529-8065-256cd297e456",
-    "created": "2018-09-11 12:37:10",
-    "modified": "2018-09-11 12:37:10",
+    "created_at": "2018-09-11 12:37:10",
+    "updated_at": "2018-09-11 12:37:10",
+    "status": "booked",
+    "client_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
     "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
-    "service_id": "etrak_tracked",
+    "service_id": "etrak_parcel_optimized",
     "barcode": "ETPML000000278",
-    "client_ref1": "test",
+    "client_ref1": "ABC0001",
     "client_ref2": "",
     "client_ref3": "",
     "batch": null,
-    "overlabel_scan": null,
-    "webhook": "https://www.yourwebsite.com/webhook",
-    "export_type": "permanent",
+    "webhook": null,
     "reason_for_export": "sale",
-    "status": "booked",
-    "shipped": "N",
+    "export_type": "permanent",
+    "shipped": false,
     "meta": {
     	"string_var1": "string1",
     	"bool_var1": true,
     	"int_var1": 0,
     	"float_var1": 0.0
     },
-    "log": [
-        {
-            "message": "created",
-            "time": "2019-01-21 10:16:19"
-        },
-        {
-            "message": "Status change:  to book_onward_shipping",
-            "time": "2019-01-21 10:16:19"
-        }
-    ],
+    "address_collection": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": "Exampletown",
+        "city": "Example City",
+        "district": "",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": ""
+    },
     "address_delivery": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": "Leave with neighbour"
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": "Exampletown",
+        "district": "",
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": "Leave with neighbour"
   	},
     "address_return": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
-    },
-    "address_collection": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": "Exampletown",
+        "district": "",
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": ""
     },
     "pieces": [
         {
-            "id": "46832880-db17-4b4b-a0c8-bd20ce6cf507",
-            "weight": "1.00",
-            "length": "30.00",
-            "width": "6.00",
-            "height": "5.00",
+            "weight": "1.000",
+            "checked_weight": "0.000",
+            "length": "30.0",
+            "width": "6.0",
+            "height": "5.0",
             "contents": [
                 {
                     "description": "Book",
-                    "value": "0.512",
+                    "value": "1.99",
                     "currency": "GBP",
-                    "hs_code": "1122334455",
-                    "quantity": "120",
+                    "hs_code": "112233445566",
+                    "quantity": "10",
                     "country_of_origin": "GB"
                 }
-            ],
-            "checked_weight": "0.000",
-            "log": null
+            ]
         }
     ]
 }
@@ -224,88 +212,80 @@ On success a 200 response code is sent.
 <?php
 
 
-$data =
-array (
-  'contract_id' => '641b4b46-d0fe-4e76-b7e9-ce7754c26955',
-  'service_id' => 'etrak_tracked',
-  'barcode' => false,
-  'client_ref1' => 'test',
-  'client_ref2' => '',
-  'client_ref3' => '',
-  'batch' => '',
-  'export_type' => 'permanent',
-  'reason_for_export' => 'sale',
-  'meta' => [],
-  'webhook' => 'https://www.example.co.uk/webhook',
-  'pieces' =>
-  array (
-    array (
-      'weight' => '0.12',
-      'length' => '1',
-      'width' => '2',
-      'height' => '3',
-      'contents' =>
-      array (
-        array (
-          'description' => 'book',
-          'value' => '10.00',
-          'currency' => 'GBP',
-          'hs_code' => '1122334455',
-          'quantity' => '120',
-          'country_of_origin' => 'GB',
-        ),
-      ),
-    ),
-  ),
-  'address_delivery' =>
-  array (
-    'name' => 'John Smith',
-    'telephone' => '01234567890',
-    'email' => 'john@example.com',
-    'company' => 'ExampleCo',
-    'line1' => 'Unit 1',
-    'line2' => 'Example Street 2',
-    'line3' => 'Exampletown',
-    'city' => 'Example City',
-    'state' => 'Examplecounty',
-    'postcode' => 'AB1 1AB',
-    'country' => 'GB',
-    'district' => '',
-    'notes' => '',
-  ),
-  'address_return' =>
-  array (
-    'name' => 'Reception',
-    'telephone' => '+33 1 53 93 55 00',
-    'email' => 'paris@marriot.com',
-    'company' => 'Paris Marriott',
-    'line1' => '70 Av. des Champs-Elysees',
-    'line2' => '',
-    'line3' => '',
-    'city' => 'Paris',
-    'state' => '',
-    'postcode' => '75008',
-    'country' => 'FR',
-    'district' => '',
-    'notes' => '',
-  ),
-  'address_collection' =>
-  array (
-    'name' => 'John Smith',
-    'telephone' => '01234567890',
-    'email' => 'john@example.com',
-    'company' => 'ExampleCo',
-    'line1' => 'Unit 1',
-    'line2' => 'Example Street 2',
-    'line3' => 'Exampletown',
-    'city' => 'Example City',
-    'state' => 'Examplecounty',
-    'postcode' => 'AB1 1AB',
-    'country' => 'GB',
-    'district' => '',
-    'notes' => '',
-  ),
-);
+$data = [
+    'contract_id' => '641b4b46-d0fe-4e76-b7e9-ce7754c26955',
+    'service_id' => 'etrak_parcel_optimized',
+    'client_ref1' => 'test',
+    'client_ref2' => '',
+    'client_ref3' => '',
+    'webhook' => 'https://www.example.com/webhook',
+    'reason_for_export' => 'sale',
+    'export_type' => 'permanent',
+    'meta' => null,
+    'address_collection' => [
+        'name' => 'John Smith',
+        'company' => 'ExampleCo',
+        'line1' => 'Unit 1',
+        'line2' => 'Example Street 2',
+        'line3' => '',
+        'district' => '',
+        'city' => 'Example City',
+        'state' => 'Examplecounty',
+        'postcode' => 'AB1 1AB',
+        'country' => 'GB',
+        'telephone' => '01234567890',
+        'email' => 'john@example.com',
+        'notes' => '',
+    ],
+    'address_delivery' => [
+        'name' => 'Reception',
+        'company' => 'Paris Marriott',
+        'line1' => '70 Av. des Champs-Elysees',
+        'line2' => '',
+        'line3' => '',
+        'district' => '',
+        'city' => 'Paris',
+        'state' => '',
+        'postcode' => '75008',
+        'country' => 'FR',
+        'telephone' => '+33 1 53 93 55 00',
+        'email' => 'paris@marriot.com',
+        'notes' => '',
+    ],
+    'address_return' => [
+        'name' => 'John Smith',
+        'company' => 'ExampleCo',
+        'line1' => 'Unit 1',
+        'line2' => 'Example Street 2',
+        'line3' => '',
+        'district' => '',
+        'city' => 'Example City',
+        'state' => 'Examplecounty',
+        'postcode' => 'AB1 1AB',
+        'country' => 'GB',
+        'telephone' => '01234567890',
+        'email' => 'john@example.com',
+        'notes' => '',
+    ],
+    'pieces' => [
+        [
+            'weight' => 1,
+            'length' => 30,
+            'width' => 20,
+            'height' => 10,
+            'contents' => [
+                [
+                    'description' => 'book',
+                    'value' => 1.99,
+                    'currency' => 'GBP',
+                    'hs_code' => '112233445566',
+                    'quantity' => 10,
+                    'country_of_origin' => 'GB',
+                ],
+            ],
+        ],
+    ],
+];
 
 $etrak = \etrak\etrak::instance()->setApiKey('YOUR_API_KEY');
 $r = \etrak\Consignment::create($data);
@@ -319,84 +299,76 @@ print_r($r);exit;
 ```json
 {
     "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
-    "service_id": "etrak_tracked",
-    "barcode": false,
+    "service_id": "etrak_parcel_optimized",
     "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
-    "batch": "",
-    "webhook": "https://www.yourwebsite.com/webhook",
-    "export_type": "permanent",
     "reason_for_export": "sale",
-    "meta": {
-    	"string_var1": "string1",
-    	"bool_var1": true,
-    	"int_var1": 0,
-    	"float_var1": 0.0
+    "export_type": "permanent",
+    "meta": null,
+    "address_collection": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": "",
+        "district": "",
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": ""
+    },
+    "address_delivery": {
+        "name": "Reception",
+        "company": "Paris Marriott",
+        "line1": "70 Av. des Champs-Elysees",
+        "line2": "",
+        "line3": "",
+        "district": "",
+        "city": "Paris",
+        "state": "",
+        "postcode": "75008",
+        "country": "FR",
+        "telephone": "+33 1 53 93 55 00",
+        "email": "paris@marriot.com",
+        "notes": ""
+    },
+    "address_return": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": "",
+        "district": "",
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": ""
     },
     "pieces": [
         {
-            "weight": "1.00",
-            "length": "30.00",
-            "width": "6.00",
-            "height": "5.00",
+            "weight": 1,
+            "length": 30,
+            "width": 20,
+            "height": 10,
             "contents": [
                 {
-                    "description": "Book",
-                    "value": "0.512",
+                    "description": "book",
+                    "value": 1.99,
                     "currency": "GBP",
-                    "hs_code": "1122334455",
-                    "quantity": "120",
+                    "hs_code": "112233445566",
+                    "quantity": 10,
                     "country_of_origin": "GB"
                 }
             ]
         }
-    ],
-  	"address_delivery": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": "Leave with neighbour"
-  	},
-    "address_return": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
-    },
-    "address_collection": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
-    }
+    ]
 }
 ```
 
@@ -404,102 +376,85 @@ print_r($r);exit;
 
 ```json
 {
-    "id": "aab4fb51-9934-4529-8065-256cd297e456",
-    "created": "2018-09-11 12:37:10",
-    "modified": "2018-09-11 12:37:10",
-    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
-    "service_id": "etrak_tracked",
-    "barcode": "ETPML000000278",
-    "client_ref1": "test",
-    "client_ref2": "",
-    "client_ref3": "",
-    "batch": null,
-    "overlabel_scan": null,
-    "webhook": "https://www.yourwebsite.com/webhook",
-    "export_type": "permanent",
-    "reason_for_export": "sale",
+    "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+    "created_at": "2020-03-26 15:00:10",
+    "updated_at": "2020-03-26 15:00:10",
     "status": "booked",
-    "shipped": "N",
-    "meta": {
-    	"string_var1": "string1",
-    	"bool_var1": true,
-    	"int_var1": 0,
-    	"float_var1": 0.0
-    },
-    "log": [
-        {
-            "message": "created",
-            "time": "2019-01-21 10:16:19"
-        },
-        {
-            "message": "Status change:  to book_onward_shipping",
-            "time": "2019-01-21 10:16:19"
-        }
-    ],
-    "address_delivery": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": "Leave with neighbour"
-  	},
-    "address_return": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
-    },
+    "client_id": "1dc00400-faef-4169-9691-ab7ad9f8f90c",
+    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+    "service_id": "etrak_parcel_optimized",
+    "barcode": "ETPML000001536",
+    "client_ref1": "test",
+    "client_ref2": null,
+    "client_ref3": null,
+    "batch": null,
+    "webhook": null,
+    "reason_for_export": "sale",
+    "export_type": "permanent",
+    "shipped": false,
+    "meta": null,
     "address_collection": {
-    		"name": "John Smith",
-    		"telephone": "01234567890",
-    		"email": "john@example.com",
-    		"company": "ExampleCo",
-    		"line1": "Unit 1",
-    		"line2": "Example Street 2",
-    		"line3": "Exampletown",
-    		"city": "Example City",
-    		"state": "Examplecounty",
-    		"postcode": "AB1 1AB",
-    		"country": "GB",
-    		"district": "",
-            "notes": ""
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": null,
+        "district": null,
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": null
+    },
+    "address_delivery": {
+        "name": "Reception",
+        "company": "Paris Marriott",
+        "line1": "70 Av. des Champs-Elysees",
+        "line2": null,
+        "line3": null,
+        "district": null,
+        "city": "Paris",
+        "state": null,
+        "postcode": "75008",
+        "country": "FR",
+        "telephone": "+33 1 53 93 55 00",
+        "email": "paris@marriot.com",
+        "notes": null
+    },
+    "address_return": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": null,
+        "district": null,
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": null
     },
     "pieces": [
         {
-            "id": "46832880-db17-4b4b-a0c8-bd20ce6cf507",
-            "weight": "1.00",
-            "length": "30.00",
-            "width": "6.00",
-            "height": "5.00",
+            "weight": "1.000",
+            "checked_weight": "0.000",
+            "length": "30.0",
+            "width": "20.0",
+            "height": "10.0",
             "contents": [
                 {
-                    "description": "Book",
-                    "value": "0.512",
+                    "value": 1.99,
+                    "hs_code": "112233445566",
                     "currency": "GBP",
-                    "hs_code": "1122334455",
-                    "quantity": "120",
+                    "quantity": 10,
+                    "description": "book",
                     "country_of_origin": "GB"
                 }
-            ],
-            "checked_weight": "0.000",
-            "log": null
+            ]
         }
     ]
 }
@@ -517,20 +472,21 @@ This method creates a consignment.
 
 Attribute | Description | Notes
 --------- | ------- | -----------
-contract_id | The contract to book on, get this from <a href="#list-all-contracts">listing contracts</a> | Mandatory
+contract_id | The contract to book on, get this from your account manager | Mandatory
 service_id | The service you want to use. | Mandatory
-barcode | ETrak barcode | Specify your own (from your range) or "false" to be allocated one
+barcode | ETrak barcode | Specify your own (from your range, following our format) or omit the field to be allocated one
 client_ref1 | Your own reference | Optional
 client_ref2 | Your own reference | Optional
 client_ref3 | Your own reference | Optional
 batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
-export_type | permanent or temporary | Optional
 reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required if crossing customs union, else optional
-pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, ETrak currently only supports single pieces | Mandatory
-address_delivery | Where you want your parcel delivered to | Mandatory
+export_type | permanent or temporary | Optional
+meta | Valid JSON data | Optional
 address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
+address_delivery | Where you want your parcel delivered to | Mandatory
 address_return | Where you parcel should be returned to if there's a problem | Optional
+pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, ETrak currently only supports single pieces | Mandatory
 
 <aside class="success">
 On success a 201 response code is sent.
@@ -579,7 +535,9 @@ On success a 204 response code is sent.
 
 # Label
 
-N.B. Labels belong to a `consignment`. They don't belong to `pieces`
+N.B. Labels belong to a `piece` even though ETrak currently only supports single piece consignments.
+
+Consequently, you can retrieve a label for the piece using the Consignment ID.
 
 ## Get A Label
 
@@ -609,7 +567,7 @@ echo base64_decode($response->body->data);
 ```
 
 
-This method retrieves a label for a single consignment.
+This method retrieves a label for a consignment.
 
 
 ### Endpoint
