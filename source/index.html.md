@@ -213,6 +213,7 @@ On success a 200 response code is sent.
 
 
 $data = [
+    'document_format' => 'pdf', // If you want the documents for the piece in the response, either include this, or add it as a query string parameter
     'contract_id' => '641b4b46-d0fe-4e76-b7e9-ce7754c26955',
     'service_id' => 'etrak_parcel_optimized',
     'client_ref1' => 'test',
@@ -298,6 +299,7 @@ print_r($r);exit;
 
 ```json
 {
+    "document_format": "pdf",
     "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
     "service_id": "etrak_parcel_optimized",
     "client_ref1": "test",
@@ -454,6 +456,18 @@ print_r($r);exit;
                     "description": "book",
                     "country_of_origin": "GB"
                 }
+            ],
+            "documents": [
+                {
+                    "type": "label",
+                    "format": "pdf",
+                    "data": "JVBERi0xLjM..."
+                },
+                {
+                    "type": "cn22",
+                    "format": "pdf",
+                    "data": "JVBERi0xLjQ..."
+                }
             ]
         }
     ]
@@ -463,10 +477,25 @@ print_r($r);exit;
 
 This method creates a consignment.
 
+You can receive the label and any relevant customs documentation for a piece in the response, by including the `document_format` parameter in the request body, or as a querystring parameter in the URL.
+
+Different onward services support different document formats, but currently, only PDF support is ubiquitous, so this is the only format supported by ETrak at the moment.
+
+If the consignment is crossing a customs union, and you have requested documents be included in the response, by including the `document_format` parameter, then the appropriate customs document, in PDF format, will also be included in the response for the piece.
+
+If the onward service is a postal carrier, the type of document will be cn22 or cn23, else it will be a pro forma or commercial invoice.
+
+The array of documents is attached at the piece level, and each document indicates the type (`label|cn22|cn23|proforma|commercial`), the format (`pdf`), and the contents, which are the base64 encoded PDF file.
 
 ### Endpoint
 
 `POST https://api.etrak.io/api/Consignment`
+
+Or if you want to include the documents in the response
+
+`POST https://api.etrak.io/api/Consignment?document_format=pdf`
+
+
 
 ### JSON Payload
 
@@ -561,7 +590,8 @@ echo base64_decode($response->body->data);
 
 ```json
 {
-  "format" : "base64",
+  "type" : "label",
+  "format" : "pdf",
   "data" : "JVBERi0xLjcKJeLjz9MKNiAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW5..."
 }
 ```
@@ -583,7 +613,7 @@ format        | The format of the label, possible values are `inline` or `base64
 
 Format | Description
 ------ | -----------
-inline | Raw PDF data
+inline | Raw PDF data with `Content-Type: application/pdf` and `Content-Disposition: inline; filename={barcode}.pdf` headers
 base64 | JSON response with `data` property containing base64 encoded string of the PDF label
 
 <aside class="success">
@@ -628,33 +658,42 @@ $response = \etrak\Track::getEvents($barcode, $deliveryPostcode);
 [
     {
         "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
-        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "trackable_type": "consignment",
+        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
         "happened_at": "2018-10-18 07:08:00",
+        "happened_at_timezone": "unknown",
         "message": "Item delivered",
-        "harmonised_status": "DELIVERED__OTHER",
-        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
-        "external_reference": "123456789",
-        "location": "SOUTH AFRICA"
+        "harmonised_status": "delivered",
+        "sub_status": "signed for",
+        "location": "New York",
+        "country_code": "US",
+        "extra": null
     },
     {
-        "id": "a2766859-14b7-4a9b-8ed1-01a6d1d5a769",
-        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
-        "happened_at": "2018-09-28 05:08:00",
-        "message": "Scheduled for delivery but not completed - To be handeled",
-        "harmonised_status": "UNKNOWN__HAS_MESSAGE_AND_LOCATION",
-        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
-        "external_reference": "123456789",
-        "location": "SOUTH AFRICA"
+        "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
+        "trackable_type": "consignment",
+        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "happened_at": "2018-10-18 07:08:00",
+        "happened_at_timezone": "unknown",
+        "message": "Item delivered",
+        "harmonised_status": "delivered",
+        "sub_status": "signed for",
+        "location": "New York",
+        "country_code": "US",
+        "extra": null
     },
     {
-        "id": "a2393860-7848-4e3c-9109-628f0b5bb3bb",
-        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
-        "happened_at": "2018-09-26 01:51:00",
-        "message": "Departure to distribution network",
-        "harmonised_status": "DEPARTED_FROM_FACILITY__HAS_LOCATION",
-        "tracking_url": "https://onward.carrier.com/track?external_reference=123456789",
-        "external_reference": "123456789",
-        "location": "United Kingdom"
+        "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
+        "trackable_type": "consignment",
+        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "happened_at": "2018-10-18 07:08:00",
+        "happened_at_timezone": "unknown",
+        "message": "Item delivered",
+        "harmonised_status": "delivered",
+        "sub_status": "signed for",
+        "location": "New York",
+        "country_code": "US",
+        "extra": null
     }
 ]
 ```
