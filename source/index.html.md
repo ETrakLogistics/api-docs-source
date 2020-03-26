@@ -1,5 +1,5 @@
 ---
-title: eTrak API Reference
+title: ETrak API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - php
@@ -15,24 +15,34 @@ search: true
 
 # Introduction
 
-Welcome to the eTrak API Reference.
+Welcome to the ETrak API Reference.
 
 
 ## Endpoints
 
-If you don't wish to use the PHP SDK, your requests should be sent to:
+Requests should be sent to:
 
 Sandbox: `https://sandbox.api.etrak.io/api/{service}`
 <br />
 Production: `https://api.etrak.io/api/{service}`
 
-## Content-type
+## Accept Header
 
-All requests to the ETrak API should include the header
+All requests to the ETrak API should include an `Accept` header:
 
 ```
 Accept: application/json
 ```
+
+## Version Header
+
+All requests to the ETrak API should include a `version` header:
+
+```
+version: 1.0
+```
+
+## Content-type Header
 
 All responses from the ETrak API have the header
 
@@ -40,30 +50,18 @@ All responses from the ETrak API have the header
 Content-Type: application/json
 ```
 
-## Version
 
-If you don't wish to use the PHP SDK, your requests should include a `version` header:
+## Authentication
 
-```
-version: 1.0
-```
+ETrak uses API keys to allow access to the API. Your account manager can supply you with an API key.
 
-## Sandbox
+ETrak expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-eTrak has a Sandbox environment that mirrors the production environment for testing.
+`Authorization: apikey`
 
-The PHP SDK also supports the Sandbox (see the docs for details).
+Please contact your account manager to get an `apikey`
 
-<!--
-## PHP SDK
-
-There's a PHP SDK available for this API. You can get it here: <br />
-<a href="https://github.com/ParcelMonkeyGroup/etrak-php">https://github.com/ParcelMonkeyGroup/etrak-php</a>.
--->
-
-# Authentication
-
-> To authorize, use this code:
+Example:
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -79,163 +77,6 @@ curl "https://api.etrak.io/api"
 ```
 
 > Make sure to replace `apikey` with your API key.
-
-eTrak uses API keys to allow access to the API. Your account manager can supply you with an API key.
-
-eTrak expects for the API key to be included in all API requests (except the `AuthenticateUser` service) to the server in a header that looks like the following:
-
-`Authorization: apikey`
-
-<aside class="notice">
-You must replace <code>apikey</code> with your personal API key.
-</aside>
-
-
-
-
-
-
-
-
-
-## AuthenticateUser
-
-
-```php
-<?php
-
-$etrak = \etrak\etrak::instance();
-$r = \etrak\AuthenticateUser::create([
-  'email' => 'john@example.com',
-  'password' => 'hello1'
-]);
-print_r($r);
-
-?>
-```
-
-
-> Example JSON Request Body:
-
-```json
-{
-  "email": "john@example.com",
-  "password": "pa55word"
-}
-```
-
-> Example JSON Response:
-
-```json
-{
-    "apikey": "5DFB8-16EF2-E5358-0E24F-E37AA-6FBA1",
-    "expires": "2018-03-28 19:09:46"
-}
-```
-
-
-
-This method generates a <strong>temporary</strong> API key (that expires in 60 minutes) by providing your eTrak.io `email` and `password`.  You can then use this API key in a subsequent request to the `CreateApiKey` service to obtain a more permanent API key.
-
-<aside class="notice">
-  You do not have to use the API to create keys. You can do this by logging into your account at eTrak.io
-</aside>
-
-<aside class="warning">
-  You should not use this to authenticate your application - it exists solely for the purpose of generating a <strong>temporary</strong> key so that you might then generate a permanent one using the <strong>`CreateApiKey`</strong> service. The reason for this is that this method relies on your email and password that could change at a later date.
-</aside>
-
-### Endpoint
-
-`POST https://api.etrak.io/api/AuthenticateUser`
-
-### JSON Payload
-
-Attribute | Mandatory | Description
---------- | ------- | -------------------
-email | true | Your eTrak.io login email.
-password | true | Your eTrak.io password.
-
-<aside class="success">
-  You can now use the API key returned in subsequent requests to the API for 60 minutes.
-</aside>
-
-
-<aside class="success">
-On success a 200 response code is sent.
-</aside>
-
-
-
-
-
-
-
-## CreateApiKey
-
-
-```php
-<?php
-
-$etrak = \etrak\etrak::instance()->setApiKey('YOUR_TEMPORARY_API_KEY');
-$r = \etrak\ApiKey::create([
-  'reference' => 'reference for this API key'
-]);
-print_r($r);
-
-?>
-```
-
-
-> Example JSON Request Body:
-
-```json
-{
-	"reference": "my application"
-}
-```
-
-> Example JSON Response:
-
-```json
-{
-    "apikey": "1467B-B0083-1C615-7C3A8-B0B89-B77C1",
-    "expires": "2118-03-27 19:01:30"
-}
-```
-
-
-This method generates a new API key (that expires in 100 years) by providing another eTrak.io API key (for example a temporary one created with `AuthenticateUser`).
-
-<aside class="notice">
-  You do not have to use the API to create keys. You can do this by logging into your account at eTrak.io
-</aside>
-
-### Endpoint
-
-`POST https://api.etrak.io/api/CreateApiKey`
-
-### JSON Payload
-
-Attribute | Mandatory | Description
---------- | ------- | -------------------
-reference | true | A free text reference for this API key.
-
-<aside class="success">
-  You can use this API in subsequent requests to the API.
-</aside>
-
-
-<aside class="success">
-On success a 201 response code is sent.
-</aside>
-
-
-
-
-
-
-
 
 # Consignments
 
@@ -678,7 +519,7 @@ Attribute | Description | Notes
 --------- | ------- | -----------
 contract_id | The contract to book on, get this from <a href="#list-all-contracts">listing contracts</a> | Mandatory
 service_id | The service you want to use. | Mandatory
-barcode | eTrak barcode | Specify your own (from your range) or "false" to be allocated one
+barcode | ETrak barcode | Specify your own (from your range) or "false" to be allocated one
 client_ref1 | Your own reference | Optional
 client_ref2 | Your own reference | Optional
 client_ref3 | Your own reference | Optional
@@ -686,7 +527,7 @@ batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
 export_type | permanent or temporary | Optional
 reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required if crossing customs union, else optional
-pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, eTrak currently only supports single pieces | Mandatory
+pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, ETrak currently only supports single pieces | Mandatory
 address_delivery | Where you want your parcel delivered to | Mandatory
 address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
 address_return | Where you parcel should be returned to if there's a problem | Optional
