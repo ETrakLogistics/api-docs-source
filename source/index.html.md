@@ -658,8 +658,9 @@ $response = \etrak\Track::getEvents($barcode, $deliveryPostcode);
 [
     {
         "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
-        "trackable_type": "consignment",
-        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "for": "consignment",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "piece_id": null,
         "happened_at": "2018-10-18 07:08:00",
         "happened_at_timezone": "unknown",
         "message": "Item delivered",
@@ -671,8 +672,9 @@ $response = \etrak\Track::getEvents($barcode, $deliveryPostcode);
     },
     {
         "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
-        "trackable_type": "consignment",
-        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "for": "consignment",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "piece_id": null,
         "happened_at": "2018-10-18 07:08:00",
         "happened_at_timezone": "unknown",
         "message": "Item delivered",
@@ -684,8 +686,9 @@ $response = \etrak\Track::getEvents($barcode, $deliveryPostcode);
     },
     {
         "id": "2e37bf14-b55a-4320-9651-542c1b35f9fc",
-        "trackable_type": "consignment",
-        "trackable_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "for": "consignment",
+        "consignment_id": "cfd52e8e-b593-4a90-bb5d-9c5483b4ce50",
+        "piece_id": null,
         "happened_at": "2018-10-18 07:08:00",
         "happened_at_timezone": "unknown",
         "message": "Item delivered",
