@@ -470,6 +470,13 @@ print_r($r);exit;
                 }
             ]
         }
+    ],
+    "documents": [
+        {
+            "type": "commercial_invoice",
+            "format": "pdf",
+            "data": "JVBERi0xLjQ..."
+        }
     ]
 }
 ```
@@ -477,15 +484,15 @@ print_r($r);exit;
 
 This method creates a consignment.
 
-You can receive the label and any relevant customs documentation for a piece in the response, by including the `document_format` parameter in the request body, or as a querystring parameter in the URL.
+You can receive the label and any relevant customs documentation for a piece (or consignment) in the response, by including the `document_format` parameter in the request body, or as a querystring parameter in the URL.
 
 Different onward services support different document formats, but currently, only PDF support is ubiquitous, so this is the only format recommended by ETrak at the moment.
 
-If the consignment is crossing a customs union, and you have requested documents be included in the response, by including the `document_format` parameter, then the appropriate customs document, in PDF format, will also be included in the response for the piece.
+If the consignment is crossing a customs union, and you have requested documents be included in the response, by including the `document_format` parameter, then the appropriate customs document, in PDF format, will also be included in the response for the piece (if the onward service is postal) or for the shipment (if the onward service is commercial).
 
-If the onward service is a postal carrier, the type of document will be cn22 or cn23, else it will be a proforma or commercial invoice.
+If the onward service is a postal carrier, the type of document will be cn22 or cn23, and will be attached to the relevant piece, else it will be a proforma or commercial invoice, and will be attached to the consignment.
 
-The array of documents is attached at the piece level, and each document indicates the type (`label|cn22|cn23|proforma_invoice|commercial_invoice`), the format (`pdf`), and the data contents, which are the base64 encoded PDF file.
+In the array of documents, each document indicates the type (`label|cn22|cn23|proforma_invoice|commercial_invoice`), the format (`pdf`), and the data contents, which are the base64 encoded PDF file.
 
 ### Endpoint
 
