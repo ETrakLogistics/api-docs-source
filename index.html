@@ -691,20 +691,27 @@ On success a 200 response code is sent.
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commercial_invoice"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method creates a consignment.</p>
 
-<p>You can receive the label and any relevant customs documentation for a piece in the response, by including the <code>document_format</code> parameter in the request body, or as a querystring parameter in the URL.</p>
+<p>You can receive the label and any relevant customs documentation for a piece (or consignment) in the response, by including the <code>document_format</code> parameter in the request body, or as a querystring parameter in the URL.</p>
 
 <p>Different onward services support different document formats, but currently, only PDF support is ubiquitous, so this is the only format recommended by ETrak at the moment.</p>
 
-<p>If the consignment is crossing a customs union, and you have requested documents be included in the response, by including the <code>document_format</code> parameter, then the appropriate customs document, in PDF format, will also be included in the response for the piece.</p>
+<p>If the consignment is crossing a customs union, and you have requested documents be included in the response, by including the <code>document_format</code> parameter, then the appropriate customs document, in PDF format, will also be included in the response for the piece (if the onward service is postal) or for the shipment (if the onward service is commercial).</p>
 
-<p>If the onward service is a postal carrier, the type of document will be cn22 or cn23, else it will be a proforma or commercial invoice.</p>
+<p>If the onward service is a postal carrier, the type of document will be cn22 or cn23, and will be attached to the relevant piece, else it will be a proforma or commercial invoice, and will be attached to the consignment.</p>
 
-<p>The array of documents is attached at the piece level, and each document indicates the type (<code>label|cn22|cn23|proforma_invoice|commercial_invoice</code>), the format (<code>pdf</code>), and the data contents, which are the base64 encoded PDF file.</p>
+<p>In the array of documents, each document indicates the type (<code>label|cn22|cn23|proforma_invoice|commercial_invoice</code>), the format (<code>pdf</code>), and the data contents, which are the base64 encoded PDF file.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p><code>POST https://api.etrak.io/api/Consignment</code></p>
 
