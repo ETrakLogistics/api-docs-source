@@ -162,6 +162,7 @@ curl "https://api.etrak.io/api"
     },
     "pieces": [
         {
+            "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
             "weight": "1.000",
             "checked_weight": "0.000",
             "length": "30.0",
@@ -442,6 +443,7 @@ print_r($r);exit;
     },
     "pieces": [
         {
+            "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
             "weight": "1.000",
             "checked_weight": "0.000",
             "length": "30.0",
