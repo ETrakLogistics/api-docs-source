@@ -518,8 +518,8 @@ client_ref2 | Your own reference | Optional
 client_ref3 | Your own reference | Optional
 batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
-reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required if crossing customs union, else optional
-export_type | permanent or temporary | Optional
+reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required
+export_type | permanent or temporary | Required
 meta | Valid JSON data | Optional
 address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
 address_delivery | Where you want your parcel delivered to | Mandatory
