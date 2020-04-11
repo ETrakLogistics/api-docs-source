@@ -526,6 +526,45 @@ address_delivery | Where you want your parcel delivered to | Mandatory
 address_return | Where you parcel should be returned to if there's a problem | Optional
 pieces | Pieces in your consignment. Whilst the data format allows for multi-piece consignments, ETrak currently only supports single pieces | Mandatory
 
+#### Piece
+
+Attribute | Description | Notes
+--------- | ------- | -----------
+weight | The weight of the piece | Float in kilograms
+length | The length of the piece | Float in centimeters
+width | The width of the piece | Float in centimeters
+height | The height of the piece | Float in centimeters
+contents | The contents of the piece | An array of objects
+
+#### Contents
+
+Attribute | Description | Notes
+--------- | ------- | -----------
+value | The value of the item | Float, in the currency listed below
+hs_code | The hs_code of the item | Between 6 and 12, digits only
+currency | The currency of the item | 3-letter ISO code
+quantity | The quantity of the item | Integer, min 1
+description | The description of the item | String, max 255 chars
+country_of_origin | The country_of_origin of the item | 2-letter ISO code
+
+#### Address
+
+Attribute | Description | Notes
+--------- | ------- | -----------
+name | The name of the address | String
+company | The company of the address | String
+line1 | The line1 of the address | String
+line2 | The line2 of the address | String
+line3 | The line3 of the address | String
+district | The district of the address | String
+city | The city of the address | String
+state | The state of the address | String
+postcode | The postcode of the address | String
+country | The country of the address | String
+telephone | The telephone of the address | String
+email | The email of the address | String
+notes | The notes of the address | String
+
 <aside class="success">
 On success a 201 response code is sent.
 </aside>
