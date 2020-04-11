@@ -804,6 +804,153 @@ On success a 200 response code is sent.
 <td>Mandatory</td>
 </tr>
 </tbody></table>
+<h4 id='piece'>Piece</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>weight</td>
+<td>The weight of the piece</td>
+<td>Float in kilograms</td>
+</tr>
+<tr>
+<td>length</td>
+<td>The length of the piece</td>
+<td>Float in centimeters</td>
+</tr>
+<tr>
+<td>width</td>
+<td>The width of the piece</td>
+<td>Float in centimeters</td>
+</tr>
+<tr>
+<td>height</td>
+<td>The height of the piece</td>
+<td>Float in centimeters</td>
+</tr>
+<tr>
+<td>contents</td>
+<td>The contents of the piece</td>
+<td>An array of objects</td>
+</tr>
+</tbody></table>
+<h4 id='contents'>Contents</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value</td>
+<td>The value of the item</td>
+<td>Float, in the currency listed below</td>
+</tr>
+<tr>
+<td>hs_code</td>
+<td>The hs_code of the item</td>
+<td>Between 6 and 12, digits only</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>The currency of the item</td>
+<td>3-letter ISO code</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of the item</td>
+<td>Integer, min 1</td>
+</tr>
+<tr>
+<td>description</td>
+<td>The description of the item</td>
+<td>String, max 255 chars</td>
+</tr>
+<tr>
+<td>country_of_origin</td>
+<td>The country_of_origin of the item</td>
+<td>2-letter ISO code</td>
+</tr>
+</tbody></table>
+<h4 id='address'>Address</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The name of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>company</td>
+<td>The company of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>line1</td>
+<td>The line1 of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>line2</td>
+<td>The line2 of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>line3</td>
+<td>The line3 of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>district</td>
+<td>The district of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>city</td>
+<td>The city of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>state</td>
+<td>The state of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>postcode</td>
+<td>The postcode of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>country</td>
+<td>The country of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>telephone</td>
+<td>The telephone of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email of the address</td>
+<td>String</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>The notes of the address</td>
+<td>String</td>
+</tr>
+</tbody></table>
 
 <aside class="success">
 On success a 201 response code is sent.
