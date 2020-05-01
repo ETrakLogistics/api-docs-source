@@ -177,6 +177,11 @@ curl "https://api.etrak.io/api"
                     "quantity": "10",
                     "country_of_origin": "GB"
                 }
+            ],
+            "references": [
+                {
+                    "reference": "final mile carrier reference"
+                }
             ]
         }
     ]
@@ -470,6 +475,11 @@ print_r($r);exit;
                     "format": "pdf",
                     "data": "JVBERi0xLjQ..."
                 }
+            ],
+            "references": [
+                {
+                    "reference": "final mile carrier reference for piece"
+                }
             ]
         }
     ],
@@ -478,6 +488,11 @@ print_r($r);exit;
             "type": "commercial_invoice",
             "format": "pdf",
             "data": "JVBERi0xLjQ..."
+        }
+    ],
+    "references": [
+        {
+            "reference": "final mile carrier reference for shipment"
         }
     ]
 }
@@ -495,6 +510,8 @@ If the consignment is crossing a customs union, and you have requested documents
 If the onward service is a postal carrier, the type of document will be cn22 or cn23, and will be attached to the relevant piece, else it will be a proforma or commercial invoice, and will be attached to the consignment.
 
 In the array of documents, each document indicates the type (`label|cn22|cn23|proforma_invoice|commercial_invoice`), the format (`pdf`), and the data contents, which are the base64 encoded PDF file.
+
+Each piece and the consignment can also have zero or more references, such as the tracking number from the final mile carrier.
 
 ### Endpoint
 
