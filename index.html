@@ -409,6 +409,11 @@ curl <span class="s2">"https://api.etrak.io/api"</span>
                     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"country_of_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -691,6 +696,11 @@ On success a 200 response code is sent.
                     </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
                 </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for piece"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -699,6 +709,11 @@ On success a 200 response code is sent.
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commercial_invoice"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for shipment"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -714,6 +729,8 @@ On success a 200 response code is sent.
 <p>If the onward service is a postal carrier, the type of document will be cn22 or cn23, and will be attached to the relevant piece, else it will be a proforma or commercial invoice, and will be attached to the consignment.</p>
 
 <p>In the array of documents, each document indicates the type (<code>label|cn22|cn23|proforma_invoice|commercial_invoice</code>), the format (<code>pdf</code>), and the data contents, which are the base64 encoded PDF file.</p>
+
+<p>Each piece and the consignment can also have zero or more references, such as the tracking number from the final mile carrier.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p><code>POST https://api.etrak.io/api/Consignment</code></p>
 
