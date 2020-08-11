@@ -248,6 +248,9 @@
                     <a href="#create-a-consignment" class="toc-h2 toc-link" data-title="create-a-consignment">Create A Consignment</a>
                   </li>
                   <li>
+                    <a href="#update-a-consignment" class="toc-h2 toc-link" data-title="update-a-consignment">Update A Consignment</a>
+                  </li>
+                  <li>
                     <a href="#cancel-a-consignment" class="toc-h2 toc-link" data-title="cancel-a-consignment">Cancel A Consignment</a>
                   </li>
               </ul>
@@ -257,6 +260,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-a-label" class="toc-h2 toc-link" data-title="get-a-label">Get A Label</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#piece-2" class="toc-h1 toc-link" data-title="piece">Piece</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#update-a-piece" class="toc-h2 toc-link" data-title="update-a-piece">Update A Piece</a>
                   </li>
               </ul>
           </li>
@@ -972,12 +983,158 @@ On success a 200 response code is sent.
 <aside class="success">
 On success a 201 response code is sent.
 </aside>
+<h2 id='update-a-consignment'>Update A Consignment</h2>
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ontrak"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a396b472-bfd0-45f8-96ae-10cbced1cee9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-26 15:00:10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-26 15:00:10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1dc00400-faef-4169-9691-ab7ad9f8f90c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"641b4b46-d0fe-4e76-b7e9-ce7754c26955"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ontrak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"barcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETPML000001536"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client_ref1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client_ref2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client_ref3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"batch"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason_for_export"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"export_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"permanent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"address_delivery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reception"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris Marriott"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70 Av. des Champs-Elysees"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75008"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33 1 53 93 55 00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris@marriot.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"address_return"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a396b472-bfd0-45f8-96ae-10cbced1cee9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"checked_weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"hs_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"book"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"country_of_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjM..."</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cn22"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for piece"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commercial_invoice"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for consignment"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method updates a consignment. You can use it to change the service that a consignment is booked on. E.g. from <code>epak</code> to <code>ontrak</code></p>
+
+<p>You will always receive a new label and any other relevant customs documentation, and new onward carrier references for a piece (or consignment) in the response.</p>
+<h3 id='endpoint-3'>Endpoint</h3>
+<p><code>PATCH https://api.etrak.io/api/Consignment/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the consignment you wish to update.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
 <h2 id='cancel-a-consignment'>Cancel A Consignment</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="c1">// tbc
 </span><span class="cp">?&gt;</span>
 </code></pre>
 <p>This method cancels a consignment (if it is not already shipped).</p>
-<h3 id='endpoint-3'>Endpoint</h3>
+<h3 id='endpoint-4'>Endpoint</h3>
 <p><code>DELETE https://api.etrak.io/api/Consignment/{id}</code></p>
 
 <table><thead>
@@ -1022,7 +1179,7 @@ On success a 204 response code is sent.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This method retrieves a label for a consignment.</p>
-<h3 id='endpoint-4'>Endpoint</h3>
+<h3 id='endpoint-5'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Label/{id}/{format}</code></p>
 
 <table><thead>
@@ -1059,6 +1216,211 @@ On success a 204 response code is sent.
 
 <aside class="success">
 On success a 200 response code is sent.
+</aside>
+<h1 id='piece-2'>Piece</h1><h2 id='update-a-piece'>Update A Piece</h2>
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"checked_weight"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.907</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"checked_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"checked_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"checked_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a396b472-bfd0-45f8-96ae-10cbced1cee9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checked_weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"hs_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"book"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country_of_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjM..."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cn22"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for piece"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"consignment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a396b472-bfd0-45f8-96ae-10cbced1cee9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-26 15:00:10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-26 15:00:10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booked"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1dc00400-faef-4169-9691-ab7ad9f8f90c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"641b4b46-d0fe-4e76-b7e9-ce7754c26955"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ontrak"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"barcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETPML000001536"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"client_ref1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"client_ref2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"client_ref3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"batch"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reason_for_export"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"export_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"permanent"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"address_delivery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reception"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris Marriott"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70 Av. des Champs-Elysees"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75008"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33 1 53 93 55 00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paris@marriot.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"address_return"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleCo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit 1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Street 2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"line3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"district"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example City"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Examplecounty"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 1AB"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a396b472-bfd0-45f8-96ae-10cbced1cee9"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"checked_weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.0"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"hs_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"book"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"country_of_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjM..."</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cn22"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for piece"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commercial_invoice"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQ..."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"references"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final mile carrier reference for consignment"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checked weight/dimensions are within latest defined weight/dimensions."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This method updates a piece. You can use it to set the checked_weight and checked dimensions properties of a piece.</p>
+
+<p>There are 2 types of successful responses, which you get depends on whether the checked weight and dimensions are less than or equal to the declared, or greater than declared, but still within the parameters of the booked service.</p>
+<h3 id='endpoint-6'>Endpoint</h3>
+<p><code>PATCH https://api.etrak.io/api/pieces/{id}</code></p>
+
+<table><thead>
+<tr>
+<th>URI Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the Piece you wish to update.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A 200 response code is sent if the checked weight and dimensions are less than or equal to the declared.
+
+The response body contains a data property that echoes back the properties of the piece.
+
+You'll also get a messsage property with a value such as "Checked weight/dimensions are within latest defined weight/dimensions."
+</aside>
+
+<aside class="success">
+A 201 response code is sent if the checked weight and dimensions are more than the declared, but still within the parameters for the original service booked.
+
+The response body contains a data property that echoes back the properties of the piece, and a consignment property that echoes back the properties of the consignment, including it's addresses and all it's pieces, and new labels and possibly customs docs, and onward carrier references.
+
+You'll also get a message such as "Checked weight/dimensions are NOT within latest defined weight/dimensions, but are within limits of booked service. 1 new weight/dimension exceeds original: The weight was originally 1.906, but is now 1.907. Consignment has been automatically rebooked with the onward carrier. See data in response for new documents and references."
+</aside>
+
+<aside class="danger">
+A 422 response code is sent if the checked weight and dimensions are more than the declared, and greater the maximum parameters for the original service booked. In this case, you should update the service_id on the consignment.
+
+
 </aside>
 <h1 id='tracking'>Tracking</h1>
 <p>Tracking events belong to a consignment</p>
@@ -1123,7 +1485,7 @@ On success a 200 response code is sent.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This method retrieves an array of tracking events for the given consignment barcode and delivery postcode.</p>
-<h3 id='endpoint-5'>Endpoint</h3>
+<h3 id='endpoint-7'>Endpoint</h3>
 <p><code>GET https://api.etrak.io/api/Track/{barcode}/{deliveryPostcode}</code></p>
 
 <table><thead>
