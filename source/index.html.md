@@ -592,6 +592,160 @@ On success a 201 response code is sent.
 
 
 
+## Update A Consignment
+
+
+
+> Example JSON Request:
+
+```json
+{
+    "service_id": "ontrak"
+}
+```
+
+> Example JSON Response:
+
+```json
+{
+    "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+    "created_at": "2020-03-26 15:00:10",
+    "updated_at": "2020-03-26 15:00:10",
+    "status": "booked",
+    "client_id": "1dc00400-faef-4169-9691-ab7ad9f8f90c",
+    "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+    "service_id": "ontrak",
+    "barcode": "ETPML000001536",
+    "client_ref1": "test",
+    "client_ref2": null,
+    "client_ref3": null,
+    "batch": null,
+    "webhook": null,
+    "reason_for_export": "sale",
+    "export_type": "permanent",
+    "shipped": false,
+    "meta": null,
+    "address_collection": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": null,
+        "district": null,
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": null
+    },
+    "address_delivery": {
+        "name": "Reception",
+        "company": "Paris Marriott",
+        "line1": "70 Av. des Champs-Elysees",
+        "line2": null,
+        "line3": null,
+        "district": null,
+        "city": "Paris",
+        "state": null,
+        "postcode": "75008",
+        "country": "FR",
+        "telephone": "+33 1 53 93 55 00",
+        "email": "paris@marriot.com",
+        "notes": null
+    },
+    "address_return": {
+        "name": "John Smith",
+        "company": "ExampleCo",
+        "line1": "Unit 1",
+        "line2": "Example Street 2",
+        "line3": null,
+        "district": null,
+        "city": "Example City",
+        "state": "Examplecounty",
+        "postcode": "AB1 1AB",
+        "country": "GB",
+        "telephone": "01234567890",
+        "email": "john@example.com",
+        "notes": null
+    },
+    "pieces": [
+        {
+            "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+            "weight": "1.000",
+            "checked_weight": "0.000",
+            "length": "30.0",
+            "width": "20.0",
+            "height": "10.0",
+            "contents": [
+                {
+                    "value": 1.99,
+                    "hs_code": "112233445566",
+                    "currency": "GBP",
+                    "quantity": 10,
+                    "description": "book",
+                    "country_of_origin": "GB"
+                }
+            ],
+            "documents": [
+                {
+                    "type": "label",
+                    "format": "pdf",
+                    "data": "JVBERi0xLjM..."
+                },
+                {
+                    "type": "cn22",
+                    "format": "pdf",
+                    "data": "JVBERi0xLjQ..."
+                }
+            ],
+            "references": [
+                {
+                    "reference": "final mile carrier reference for piece"
+                }
+            ]
+        }
+    ],
+    "documents": [
+        {
+            "type": "commercial_invoice",
+            "format": "pdf",
+            "data": "JVBERi0xLjQ..."
+        }
+    ],
+    "references": [
+        {
+            "reference": "final mile carrier reference for consignment"
+        }
+    ]
+}
+```
+
+
+This method updates a consignment. You can use it to change the service that a consignment is booked on. E.g. from `epak` to `ontrak`
+
+You will always receive a new label and any other relevant customs documentation, and new onward carrier references for a piece (or consignment) in the response.
+
+### Endpoint
+
+`PATCH https://api.etrak.io/api/Consignment/{id}`
+
+
+URI Parameter | Description
+--------- | ------- | -----------
+id | The ID of the consignment you wish to update.
+
+
+
+<aside class="success">
+On success a 200 response code is sent.
+</aside>
+
+
+
+
+
 
 
 
@@ -690,9 +844,218 @@ On success a 200 response code is sent.
 
 
 
+# Piece
 
 
 
+## Update A Piece
+
+
+
+> Example JSON Request:
+
+```json
+{
+    "checked_weight": 1.907,
+    "checked_length": 60,
+    "checked_width": 29,
+    "checked_height": 1
+}
+```
+
+> Example JSON Response:
+
+```json
+{
+    "data": {
+        "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+        "weight": "1.000",
+        "checked_weight": "0.000",
+        "length": "30.0",
+        "width": "20.0",
+        "height": "10.0",
+        "contents": [
+            {
+                "value": 1.99,
+                "hs_code": "112233445566",
+                "currency": "GBP",
+                "quantity": 10,
+                "description": "book",
+                "country_of_origin": "GB"
+            }
+        ],
+        "documents": [
+            {
+                "type": "label",
+                "format": "pdf",
+                "data": "JVBERi0xLjM..."
+            },
+            {
+                "type": "cn22",
+                "format": "pdf",
+                "data": "JVBERi0xLjQ..."
+            }
+        ],
+        "references": [
+            {
+                "reference": "final mile carrier reference for piece"
+            }
+        ],
+        "consignment": {
+            "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+            "created_at": "2020-03-26 15:00:10",
+            "updated_at": "2020-03-26 15:00:10",
+            "status": "booked",
+            "client_id": "1dc00400-faef-4169-9691-ab7ad9f8f90c",
+            "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+            "service_id": "ontrak",
+            "barcode": "ETPML000001536",
+            "client_ref1": "test",
+            "client_ref2": null,
+            "client_ref3": null,
+            "batch": null,
+            "webhook": null,
+            "reason_for_export": "sale",
+            "export_type": "permanent",
+            "shipped": false,
+            "meta": null,
+            "address_collection": {
+                "name": "John Smith",
+                "company": "ExampleCo",
+                "line1": "Unit 1",
+                "line2": "Example Street 2",
+                "line3": null,
+                "district": null,
+                "city": "Example City",
+                "state": "Examplecounty",
+                "postcode": "AB1 1AB",
+                "country": "GB",
+                "telephone": "01234567890",
+                "email": "john@example.com",
+                "notes": null
+            },
+            "address_delivery": {
+                "name": "Reception",
+                "company": "Paris Marriott",
+                "line1": "70 Av. des Champs-Elysees",
+                "line2": null,
+                "line3": null,
+                "district": null,
+                "city": "Paris",
+                "state": null,
+                "postcode": "75008",
+                "country": "FR",
+                "telephone": "+33 1 53 93 55 00",
+                "email": "paris@marriot.com",
+                "notes": null
+            },
+            "address_return": {
+                "name": "John Smith",
+                "company": "ExampleCo",
+                "line1": "Unit 1",
+                "line2": "Example Street 2",
+                "line3": null,
+                "district": null,
+                "city": "Example City",
+                "state": "Examplecounty",
+                "postcode": "AB1 1AB",
+                "country": "GB",
+                "telephone": "01234567890",
+                "email": "john@example.com",
+                "notes": null
+            },
+            "pieces": [
+                {
+                    "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
+                    "weight": "1.000",
+                    "checked_weight": "0.000",
+                    "length": "30.0",
+                    "width": "20.0",
+                    "height": "10.0",
+                    "contents": [
+                        {
+                            "value": 1.99,
+                            "hs_code": "112233445566",
+                            "currency": "GBP",
+                            "quantity": 10,
+                            "description": "book",
+                            "country_of_origin": "GB"
+                        }
+                    ],
+                    "documents": [
+                        {
+                            "type": "label",
+                            "format": "pdf",
+                            "data": "JVBERi0xLjM..."
+                        },
+                        {
+                            "type": "cn22",
+                            "format": "pdf",
+                            "data": "JVBERi0xLjQ..."
+                        }
+                    ],
+                    "references": [
+                        {
+                            "reference": "final mile carrier reference for piece"
+                        }
+                    ]
+                }
+            ],
+            "documents": [
+                {
+                    "type": "commercial_invoice",
+                    "format": "pdf",
+                    "data": "JVBERi0xLjQ..."
+                }
+            ],
+            "references": [
+                {
+                    "reference": "final mile carrier reference for consignment"
+                }
+            ]
+        }
+    },
+    "message": "Checked weight/dimensions are within latest defined weight/dimensions."
+}
+```
+
+
+This method updates a piece. You can use it to set the checked_weight and checked dimensions properties of a piece.
+
+There are 2 types of successful responses, which you get depends on whether the checked weight and dimensions are less than or equal to the declared, or greater than declared, but still within the parameters of the booked service.
+
+### Endpoint
+
+`PATCH https://api.etrak.io/api/pieces/{id}`
+
+
+URI Parameter | Description
+--------- | ------- | -----------
+id | The ID of the Piece you wish to update.
+
+
+
+<aside class="success">
+A 200 response code is sent if the checked weight and dimensions are less than or equal to the declared.
+
+The response body contains a data property that echoes back the properties of the piece.
+
+You'll also get a messsage property with a value such as "Checked weight/dimensions are within latest defined weight/dimensions."
+</aside>
+
+<aside class="success">
+A 201 response code is sent if the checked weight and dimensions are more than the declared, but still within the parameters for the original service booked.
+
+The response body contains a data property that echoes back the properties of the piece, and a consignment property that echoes back the properties of the consignment, including it's addresses and all it's pieces, and new labels and possibly customs docs, and onward carrier references.
+
+You'll also get a message such as "Checked weight/dimensions are NOT within latest defined weight/dimensions, but are within limits of booked service. 1 new weight/dimension exceeds original: The weight was originally 1.906, but is now 1.907. Consignment has been automatically rebooked with the onward carrier. See data in response for new documents and references."
+</aside>
+
+<aside class="danger">
+A 422 response code is sent if the checked weight and dimensions are more than the declared, and greater the maximum parameters for the original service booked. In this case, you should update the service_id on the consignment.
+
+
+</aside>
 
 
 
