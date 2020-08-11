@@ -884,23 +884,6 @@ On success a 200 response code is sent.
                 "country_of_origin": "GB"
             }
         ],
-        "documents": [
-            {
-                "type": "label",
-                "format": "pdf",
-                "data": "JVBERi0xLjM..."
-            },
-            {
-                "type": "cn22",
-                "format": "pdf",
-                "data": "JVBERi0xLjQ..."
-            }
-        ],
-        "references": [
-            {
-                "reference": "final mile carrier reference for piece"
-            }
-        ],
         "consignment": {
             "id": "a396b472-bfd0-45f8-96ae-10cbced1cee9",
             "created_at": "2020-03-26 15:00:10",
