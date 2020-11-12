@@ -502,7 +502,12 @@ print_r($r);exit;
     ],
     "references": [
         {
-            "reference": "final mile carrier reference for shipment"
+            "reference": "final mile tracking number for shipment",
+            "type": "tracking_number"
+        },
+        {
+            "reference": "final mile label barcode value for shipment",
+            "type": "barcode"
         }
     ]
 }
@@ -731,7 +736,12 @@ On success a 201 response code is sent.
     ],
     "references": [
         {
-            "reference": "final mile carrier reference for consignment"
+            "reference": "final mile tracking number for consignment",
+            "type": "tracking_number"
+        },
+        {
+            "reference": "final mile label barcode value for consignment",
+            "type": "barcode"
         }
     ]
 }
@@ -994,7 +1004,12 @@ On success a 200 response code is sent.
                     ],
                     "references": [
                         {
-                            "reference": "final mile carrier reference for piece"
+                            "reference": "final mile carrier tracking number for piece",
+                            "type": "tracking_number"
+                        },
+                        {
+                            "reference": "final mile label barcode for piece",
+                            "type": "barcode"
                         }
                     ]
                 }
