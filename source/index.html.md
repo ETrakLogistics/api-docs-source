@@ -180,7 +180,12 @@ curl "https://api.etrak.io/api"
             ],
             "references": [
                 {
-                    "reference": "final mile carrier reference"
+                    "reference": "final mile tracking number for piece",
+                    "type": "tracking_number"
+                },
+                {
+                    "reference": "final mile label barcode value for piece",
+                    "type": "barcode"
                 }
             ]
         }
@@ -478,7 +483,12 @@ print_r($r);exit;
             ],
             "references": [
                 {
-                    "reference": "final mile carrier reference for piece"
+                    "reference": "final mile tracking number for piece",
+                    "type": "tracking_number"
+                },
+                {
+                    "reference": "final mile label barcode value for piece",
+                    "type": "barcode"
                 }
             ]
         }
@@ -702,7 +712,12 @@ On success a 201 response code is sent.
             ],
             "references": [
                 {
-                    "reference": "final mile carrier reference for piece"
+                    "reference": "final mile tracking number for piece",
+                    "type": "tracking_number"
+                },
+                {
+                    "reference": "final mile label barcode value for piece",
+                    "type": "barcode"
                 }
             ]
         }
