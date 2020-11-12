@@ -993,7 +993,12 @@ On success a 200 response code is sent.
             ],
             "references": [
                 {
-                    "reference": "final mile carrier reference for consignment"
+                    "reference": "final mile tracking number for piece",
+                    "type": "tracking_number"
+                },
+                {
+                    "reference": "final mile label barcode value for piece",
+                    "type": "barcode"
                 }
             ]
         }
