@@ -108,6 +108,10 @@ curl "https://api.etrak.io/api"
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "sender_tax_id": "",
+    "sender_customs_id": "",
+    "recipient_tax_id": "",
+    "recipient_customs_id": "",
     "shipped": false,
     "meta": {
     	"string_var1": "string1",
@@ -233,6 +237,10 @@ $data = [
     'webhook' => 'https://www.example.com/webhook',
     'reason_for_export' => 'sale',
     'export_type' => 'permanent',
+    'sender_tax_id' => '',
+    'sender_customs_id' => '',
+    'recipient_tax_id' => '',
+    'recipient_customs_id' => '',
     'meta' => null,
     'address_collection' => [
         'name' => 'John Smith',
@@ -318,6 +326,10 @@ print_r($r);exit;
     "client_ref3": "",
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "sender_tax_id": "",
+    "sender_customs_id": "",
+    "recipient_tax_id": "",
+    "recipient_customs_id": "",
     "meta": null,
     "address_collection": {
         "name": "John Smith",
@@ -404,6 +416,10 @@ print_r($r);exit;
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "sender_tax_id": "",
+    "sender_customs_id": "",
+    "recipient_tax_id": "",
+    "recipient_customs_id": "",
     "shipped": false,
     "meta": null,
     "address_collection": {
@@ -552,6 +568,10 @@ batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
 reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required
 export_type | permanent or temporary | Required
+sender_tax_id | VAT No | Optional
+sender_customs_id | EORI No | Optional
+recipient_tax_id | VAT No | Optional
+recipient_customs_id | EORI No | Optional
 meta | Valid JSON data | Optional
 address_collection | Where your parcel should be collected from (if appropriate) | Mandatory
 address_delivery | Where you want your parcel delivered to | Mandatory
@@ -638,6 +658,10 @@ On success a 201 response code is sent.
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "sender_tax_id": "",
+    "sender_customs_id": "",
+    "recipient_tax_id": "",
+    "recipient_customs_id": "",
     "shipped": false,
     "meta": null,
     "address_collection": {
@@ -925,6 +949,10 @@ On success a 200 response code is sent.
             "webhook": null,
             "reason_for_export": "sale",
             "export_type": "permanent",
+            "sender_tax_id": "",
+            "sender_customs_id": "",
+            "recipient_tax_id": "",
+            "recipient_customs_id": "",
             "shipped": false,
             "meta": null,
             "address_collection": {
