@@ -108,6 +108,7 @@ curl "https://api.etrak.io/api"
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "terms_of_trade": "DDU",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -237,6 +238,7 @@ $data = [
     'webhook' => 'https://www.example.com/webhook',
     'reason_for_export' => 'sale',
     'export_type' => 'permanent',
+    'terms_of_trade' => 'DDU',
     'sender_tax_id' => '',
     'sender_customs_id' => '',
     'recipient_tax_id' => '',
@@ -326,6 +328,7 @@ print_r($r);exit;
     "client_ref3": "",
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "terms_of_trade": "DDU",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -416,6 +419,7 @@ print_r($r);exit;
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "terms_of_trade": "DDU",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -568,6 +572,7 @@ batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
 reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required
 export_type | permanent or temporary | Required
+terms_of_trade | DDU or DDP | Optional. If omitted DDU is assumed
 sender_tax_id | VAT No | Optional
 sender_customs_id | EORI No | Optional
 recipient_tax_id | VAT No | Optional
@@ -658,6 +663,7 @@ On success a 201 response code is sent.
     "webhook": null,
     "reason_for_export": "sale",
     "export_type": "permanent",
+    "terms_of_trade": "DDU",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -949,6 +955,7 @@ On success a 200 response code is sent.
             "webhook": null,
             "reason_for_export": "sale",
             "export_type": "permanent",
+            "terms_of_trade": "DDU",
             "sender_tax_id": "",
             "sender_customs_id": "",
             "recipient_tax_id": "",
