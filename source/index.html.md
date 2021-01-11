@@ -106,7 +106,7 @@ curl "https://api.etrak.io/api"
     "client_ref3": "",
     "batch": null,
     "webhook": null,
-    "reason_for_export": "sale",
+    "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
     "sender_tax_id": "",
@@ -236,7 +236,7 @@ $data = [
     'client_ref2' => '',
     'client_ref3' => '',
     'webhook' => 'https://www.example.com/webhook',
-    'reason_for_export' => 'sale',
+    'reason_for_export' => 'sold',
     'export_type' => 'permanent',
     'terms_of_trade' => 'DDU',
     'sender_tax_id' => '',
@@ -326,7 +326,7 @@ print_r($r);exit;
     "client_ref1": "test",
     "client_ref2": "",
     "client_ref3": "",
-    "reason_for_export": "sale",
+    "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
     "sender_tax_id": "",
@@ -417,7 +417,7 @@ print_r($r);exit;
     "client_ref3": null,
     "batch": null,
     "webhook": null,
-    "reason_for_export": "sale",
+    "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
     "sender_tax_id": "",
@@ -570,7 +570,7 @@ client_ref2 | Your own reference | Optional
 client_ref3 | Your own reference | Optional
 batch | Your own reference for a batch / dispatch of Consignments | Optional
 webhook | URL we should post updates to | Optional
-reason_for_export | sale, gift, intercompany transfer, sample, repair, return, personal items, other | Required
+reason_for_export | sold (formerly "sale"), gift, intra company transfer (formerly "intercompany transfer"), sample, repair, returned (formerly "return"), personal items, other | Required
 export_type | permanent or temporary | Required
 terms_of_trade | DDU or DDP | Optional. If omitted DDU is assumed
 sender_tax_id | VAT No | Optional
@@ -661,7 +661,7 @@ On success a 201 response code is sent.
     "client_ref3": null,
     "batch": null,
     "webhook": null,
-    "reason_for_export": "sale",
+    "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
     "sender_tax_id": "",
@@ -953,7 +953,7 @@ On success a 200 response code is sent.
             "client_ref3": null,
             "batch": null,
             "webhook": null,
-            "reason_for_export": "sale",
+            "reason_for_export": "sold",
             "export_type": "permanent",
             "terms_of_trade": "DDU",
             "sender_tax_id": "",
