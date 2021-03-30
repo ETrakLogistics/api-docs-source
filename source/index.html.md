@@ -109,6 +109,10 @@ curl "https://api.etrak.io/api"
     "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
+    "shipping_charge" :  "3.99",
+    "shipping_charge_currency" : "GBP",
+    "tax" :  "3.99",
+    "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -239,6 +243,10 @@ $data = [
     'reason_for_export' => 'sold',
     'export_type' => 'permanent',
     'terms_of_trade' => 'DDU',
+    'shipping_charge' => '3.99',
+    'shipping_charge_currency' => 'GBP',
+    'tax' => '3.99',
+    'duty' => '3.99',
     'sender_tax_id' => '',
     'sender_customs_id' => '',
     'recipient_tax_id' => '',
@@ -329,6 +337,10 @@ print_r($r);exit;
     "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
+    "shipping_charge" :  "3.99",
+    "shipping_charge_currency" : "GBP",
+    "tax" :  "3.99",
+    "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -420,6 +432,10 @@ print_r($r);exit;
     "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
+    "shipping_charge" :  "3.99",
+    "shipping_charge_currency" : "GBP",
+    "tax" :  "3.99",
+    "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -573,6 +589,10 @@ webhook | URL we should post updates to | Optional
 reason_for_export | sold (formerly "sale"), gift, documents, intra company transfer (formerly "intercompany transfer"), sample, repair, returned (formerly "return"), personal items, temporary export, other | Required
 export_type | permanent or temporary | Required
 terms_of_trade | DDU or DDP | Optional. If omitted DDU is assumed
+shipping_charge | The amount charged by the vendor of the products being shipped, to the final customer of the products for shipping them, i.e. the shippings costs in an ecommerce order | Should be a number, up to 2 decimal places, e.g. 3.99. Mandatory for DDP (because it's part of the Duties & Tax calculation) although if not supplied 0.00, in the `shipping_charge_currency` is assumed
+shipping_charge_currency | The currency of the `shipping_charge` | 3 character ISO currency code, e.g. GBP or EUR or USD. Mandatory if `shipping_charge` is provided. Should be the same as the currency of the declared value in the piece contents
+tax | The total tax paid for DDP shipments (for products, shipping, insurance etc) | Should be a number, up to 2 decimal places, e.g. `3.99`. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and `terms_of_trade` is DDP, we will calculate it for you
+duty | The total duty paid for DDP shipments (for products, shipping, insurance etc) | Should be a number, up to 2 decimal places, e.g. `3.99`. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and `terms_of_trade` is DDP, we will calculate it for you
 sender_tax_id | VAT No | Optional
 sender_customs_id | EORI No | Optional
 recipient_tax_id | VAT No | Optional
@@ -664,6 +684,10 @@ On success a 201 response code is sent.
     "reason_for_export": "sold",
     "export_type": "permanent",
     "terms_of_trade": "DDU",
+    "shipping_charge" :  "3.99",
+    "shipping_charge_currency" : "GBP",
+    "tax" :  "3.99",
+    "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
     "recipient_tax_id": "",
@@ -956,6 +980,10 @@ On success a 200 response code is sent.
             "reason_for_export": "sold",
             "export_type": "permanent",
             "terms_of_trade": "DDU",
+            "shipping_charge" :  "3.99",
+            "shipping_charge_currency" : "GBP",
+            "tax" :  "3.99",
+            "duty" : "3.99",
             "sender_tax_id": "",
             "sender_customs_id": "",
             "recipient_tax_id": "",
