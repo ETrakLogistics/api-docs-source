@@ -115,6 +115,7 @@ curl "https://api.etrak.io/api"
     "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
+    "sender_ioss_number": "",
     "recipient_tax_id": "",
     "recipient_customs_id": "",
     "shipped": false,
@@ -249,6 +250,7 @@ $data = [
     'duty' => '3.99',
     'sender_tax_id' => '',
     'sender_customs_id' => '',
+    'sender_ioss_number' => '',
     'recipient_tax_id' => '',
     'recipient_customs_id' => '',
     'meta' => null,
@@ -343,6 +345,7 @@ print_r($r);exit;
     "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
+    "sender_ioss_number": "",
     "recipient_tax_id": "",
     "recipient_customs_id": "",
     "meta": null,
@@ -438,6 +441,7 @@ print_r($r);exit;
     "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
+    "sender_ioss_number": "",
     "recipient_tax_id": "",
     "recipient_customs_id": "",
     "shipped": false,
@@ -595,6 +599,7 @@ tax | The total tax paid for DDP shipments (for products, shipping, insurance et
 duty | The total duty paid for DDP shipments (for products, shipping, insurance etc) | Should be a number, up to 2 decimal places, e.g. `3.99`. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and `terms_of_trade` is DDP, we will calculate it for you
 sender_tax_id | VAT No | Optional
 sender_customs_id | EORI No | Optional
+sender_ioss_number | IOSS Number | Optional
 recipient_tax_id | VAT No | Optional
 recipient_customs_id | EORI No | Optional
 meta | Valid JSON data | Optional
@@ -690,6 +695,7 @@ On success a 201 response code is sent.
     "duty" : "3.99",
     "sender_tax_id": "",
     "sender_customs_id": "",
+    "sender_ioss_number": "",
     "recipient_tax_id": "",
     "recipient_customs_id": "",
     "shipped": false,
@@ -986,6 +992,7 @@ On success a 200 response code is sent.
             "duty" : "3.99",
             "sender_tax_id": "",
             "sender_customs_id": "",
+            "sender_ioss_number": "",
             "recipient_tax_id": "",
             "recipient_customs_id": "",
             "shipped": false,
