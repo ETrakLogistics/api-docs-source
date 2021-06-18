@@ -113,6 +113,7 @@ curl "https://api.etrak.io/api"
     "shipping_charge_currency" : "GBP",
     "tax" :  "3.99",
     "duty" : "3.99",
+    "duties_and_taxes_chargeable_to_sender": true,
     "sender_tax_id": "",
     "sender_customs_id": "",
     "sender_ioss_number": "",
@@ -439,6 +440,7 @@ print_r($r);exit;
     "shipping_charge_currency" : "GBP",
     "tax" :  "3.99",
     "duty" : "3.99",
+    "duties_and_taxes_chargeable_to_sender": false,
     "sender_tax_id": "",
     "sender_customs_id": "",
     "sender_ioss_number": "",
@@ -597,6 +599,7 @@ shipping_charge | The amount charged by the vendor of the products being shipped
 shipping_charge_currency | The currency of the `shipping_charge` | 3 character ISO currency code, e.g. GBP or EUR or USD. Mandatory if `shipping_charge` is provided. Should be the same as the currency of the declared value in the piece contents
 tax | The total tax paid for DDP shipments (for products, shipping, insurance etc) | Should be a number, up to 2 decimal places, e.g. `3.99`. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and `terms_of_trade` is DDP, we will calculate it for you
 duty | The total duty paid for DDP shipments (for products, shipping, insurance etc) | Should be a number, up to 2 decimal places, e.g. `3.99`. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and `terms_of_trade` is DDP, we will calculate it for you
+duties_and_taxes_chargeable_to_sender | Bool. Should not be supplied in request. It will be in the response though. We determine the value based on terms_of_trade (DDP), and whether IOSS eligible (Non EU > EU, goods intrinsic value < 150EUR or 135GBP & sender_ioss_number supplied) | Omit
 sender_tax_id | VAT No | Optional
 sender_customs_id | EORI No | Optional
 sender_ioss_number | IOSS Number | Optional
@@ -693,6 +696,7 @@ On success a 201 response code is sent.
     "shipping_charge_currency" : "GBP",
     "tax" :  "3.99",
     "duty" : "3.99",
+    "duties_and_taxes_chargeable_to_sender": false,
     "sender_tax_id": "",
     "sender_customs_id": "",
     "sender_ioss_number": "",
@@ -990,6 +994,7 @@ On success a 200 response code is sent.
             "shipping_charge_currency" : "GBP",
             "tax" :  "3.99",
             "duty" : "3.99",
+            "duties_and_taxes_chargeable_to_sender": false,
             "sender_tax_id": "",
             "sender_customs_id": "",
             "sender_ioss_number": "",
@@ -1149,6 +1154,10 @@ A 422 response code is sent if the checked weight and dimensions are more than t
 
 
 # Tracking
+
+Please note we also support webhook / callback for pushing new events to your system as soon as we receive them, or can create text files containing all new events received since the last file was produced, every hour, and put them on an SFTP server we can provide you with access to. Get in touch with your account manager for more info.
+
+We also have our public facing tracking page at https://track.etrak.io/{barcode}
 
 Tracking events belong to a consignment
 
