@@ -356,6 +356,7 @@ curl <span class="s2">"https://api.etrak.io/api"</span>
     </span><span class="s2">"shipping_charge_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duties_and_taxes_chargeable_to_sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_customs_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_ioss_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -671,6 +672,7 @@ On success a 200 response code is sent.
     </span><span class="s2">"shipping_charge_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duties_and_taxes_chargeable_to_sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_customs_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_ioss_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -885,6 +887,11 @@ On success a 200 response code is sent.
 <td>duty</td>
 <td>The total duty paid for DDP shipments (for products, shipping, insurance etc)</td>
 <td>Should be a number, up to 2 decimal places, e.g. <code>3.99</code>. Currency is the currency of the declared value in the piece contents. Optional, if omitted, and <code>terms_of_trade</code> is DDP, we will calculate it for you</td>
+</tr>
+<tr>
+<td>duties_and_taxes_chargeable_to_sender</td>
+<td>Bool. Should not be supplied in request. It will be in the response though. We determine the value based on terms_of_trade (DDP), and whether IOSS eligible (Non EU &gt; EU, goods intrinsic value &lt; 150EUR or 135GBP &amp; sender_ioss_number supplied)</td>
+<td>Omit</td>
 </tr>
 <tr>
 <td>sender_tax_id</td>
@@ -1120,6 +1127,7 @@ On success a 201 response code is sent.
     </span><span class="s2">"shipping_charge_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duties_and_taxes_chargeable_to_sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_customs_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sender_ioss_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1395,6 +1403,7 @@ On success a 200 response code is sent.
             </span><span class="s2">"shipping_charge_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"tax"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duties_and_taxes_chargeable_to_sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sender_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sender_customs_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sender_ioss_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1551,6 +1560,10 @@ A 422 response code is sent if the checked weight and dimensions are more than t
 
 </aside>
 <h1 id='tracking'>Tracking</h1>
+<p>Please note we also support webhook / callback for pushing new events to your system as soon as we receive them, or can create text files containing all new events received since the last file was produced, every hour, and put them on an SFTP server we can provide you with access to. Get in touch with your account manager for more info.</p>
+
+<p>We also have our public facing tracking page at https://track.etrak.io/{barcode}</p>
+
 <p>Tracking events belong to a consignment</p>
 <h2 id='get-tracking-events'>Get Tracking Events</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
