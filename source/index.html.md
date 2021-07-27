@@ -1246,9 +1246,34 @@ On success a 200 response code is sent.
 
 # Available Services Checks
 
-You can check what services are available for consignment before you book it, by POSTing the consignment data in the same format as the payload for creating it.
+You can check what services are available for a consignment before you book it, by POSTing the consignment data in the same format as the payload for creating it, to this endpoint.
 
-## Get Available Services
+## Perform an Available Services Check
+
+### Endpoint
+
+`POST https://api.etrak.io/api/available-services-checks`
+
+### Request Parameters
+
+Attribute | Description | Notes
+--------- | ------- | -----------
+contract_id | The contract to check available services for, get this from your account manager | Mandatory
+terms_of_trade | The terms of trade you want to use. Valid values are DDP or DDU. If omitted, DDU is assumed | Optional
+sender_ioss_number | The sender's IOSS number. This is required for the consignment to be considered IOSS eligible, and if all other IOSS requirements are met (lane, intrinsic value), each service in the response can be used for IOSS. If supplied, should be a valid IOSS number. | Optional
+address_collection.postcode | The 'from' address postcode. This is used in conjunction with the from address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible. | Optional
+address_collection.country | The 'from' address country. | Mandatory
+address_delivery.postcode | The 'to' address postcode. This is used in conjunction with the to address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible. | Optional
+address_delivery.country | The 'to' address country. | Mandatory
+pieces | Array of pieces. Currently only single piece consignments are supported. | Mandatory
+pieces.*.weight | Float. The weight of the piece in kilograms. Up to 3 decimal places are supported | Mandatory
+pieces.*.length | Float. The length of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
+pieces.*.width | Float. The width of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
+pieces.*.height | Float. The height of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
+pieces.*.contents | Array of contents within the piece. The `value`, `quantity` and `currency` properties within each item are used to determine the intrinsic value of the consignment to see if it's IOSS eligible, if the other criteria for IOSS are met. | Optional
+pieces.*.contents.*.value | Float. The unit value of the item in the item's `currency`. Up to 2 decimal places are supported. See description for `pieces.*.contents` about why this may be supplied | Optional
+pieces.*.contents.*.currency | String. 3 Characters. The ISO currency code, e.g. GBP, that the unit `value` is in. See description for `pieces.*.contents` about why this may be supplied | Optional
+pieces.*.contents.*.quantity | Integer. The number of unit of this item in the piece. The unit `value` of the item is multiplied by this to determine the intrinsic value when checking for IOSS eligibility. See description for `pieces.*.contents` about why this may be supplied | Optional
 
 > Example JSON Request:
 
@@ -1283,7 +1308,13 @@ You can check what services are available for consignment before you book it, by
 }
 ```
 
-> Example JSON Response:
+<aside class="success">
+On success a 200 response code is sent.
+The response body contains an array of services that a consignment with these properties could be booked on.
+If there are no available services, then the response body will contain an empty array
+</aside>
+
+> Example JSON Response with available services:
 
 ```json
 [
@@ -1305,6 +1336,16 @@ You can check what services are available for consignment before you book it, by
 ]
 ```
 
+> Example JSON Response with no available services:
+
+```json
+[]
+```
+
+<aside class="warning">
+If the request payload is invalid, a 422 response code is sent, along with a body containing the errors.
+</aside>
+
 > Example JSON Error Response:
 
 ```json
@@ -1318,37 +1359,3 @@ You can check what services are available for consignment before you book it, by
 }
 ```
 
-### Endpoint
-
-`POST https://api.etrak.io/api/available-services-checks`
-
-### JSON Payload
-
-Attribute | Description | Notes
---------- | ------- | -----------
-contract_id | The contract to check available services for, get this from your account manager | Mandatory
-terms_of_trade | The terms of trade you want to use. Valid values are DDP or DDU. If omitted, DDU is assumed | Optional
-sender_ioss_number | The sender's IOSS number. This is required for the consignment to be considered IOSS eligible, and if all other IOSS requirements are met (lane, intrinsic value), each service in the response can be used for IOSS. If supplied, should be a valid IOSS number. | Optional
-address_collection.postcode | The 'from' address postcode. This is used in conjunction with the from address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible. | Optional
-address_collection.country | The 'from' address country. | Mandatory
-address_delivery.postcode | The 'to' address postcode. This is used in conjunction with the to address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible. | Optional
-address_delivery.country | The 'to' address country. | Mandatory
-pieces | Array of pieces. Currently only single piece consignments are supported. | Mandatory
-pieces.*.weight | Float. The weight of the piece in kilograms. Up to 3 decimal places are supported | Mandatory
-pieces.*.length | Float. The length of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
-pieces.*.width | Float. The width of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
-pieces.*.height | Float. The height of the piece in centimeters. Up to 2 decimal places are supported | Mandatory
-pieces.*.contents | Array of contents within the piece. The `value`, `quantity` and `currency` properties within each item are used to determine the intrinsic value of the consignment to see if it's IOSS eligible, if the other criteria for IOSS are met. | Optional
-pieces.*.contents.*.value | Float. The unit value of the item in the item's `currency`. Up to 2 decimal places are supported. See description for `pieces.*.contents` about why this may be supplied | Optional
-pieces.*.contents.*.currency | String. 3 Characters. The ISO currency code, e.g. GBP, that the unit `value` is in. See description for `pieces.*.contents` about why this may be supplied | Optional
-pieces.*.contents.*.quantity | Integer. The number of unit of this item in the piece. The unit `value` of the item is multiplied by this to determine the intrinsic value when checking for IOSS eligibility. See description for `pieces.*.contents` about why this may be supplied | Optional
-
-<aside class="success">
-On success a 200 response code is sent.
-The response body contains an array of services that a consignment with these properties could be booked on.
-If there are no available services, then the response body will contain an empty array
-</aside>
-
-<aside class="warning">
-If the request payload is invalid, a 422 response code is sent, along with a body containing the errors.
-</aside>
