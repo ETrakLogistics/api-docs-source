@@ -280,6 +280,14 @@
               </ul>
           </li>
           <li>
+            <a href="#available-services-checks" class="toc-h1 toc-link" data-title="available-services-checks">Available Services Checks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#perform-an-available-services-check" class="toc-h2 toc-link" data-title="perform-an-available-services-check">Perform an Available Services Check</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -1648,7 +1656,180 @@ A 422 response code is sent if the checked weight and dimensions are more than t
 <aside class="success">
 On success a 200 response code is sent.
 </aside>
-<h1 id='errors'>Errors</h1>
+<h1 id='available-services-checks'>Available Services Checks</h1>
+<p>You can check what services are available for a consignment before you book it, by POSTing the consignment data in the same format as the payload for creating it, to this endpoint.</p>
+<h2 id='perform-an-available-services-check'>Perform an Available Services Check</h2><h3 id='endpoint-8'>Endpoint</h3>
+<p><code>POST https://api.etrak.io/api/available-services-checks</code></p>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_id</td>
+<td>The contract to check available services for, get this from your account manager</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>terms_of_trade</td>
+<td>The terms of trade you want to use. Valid values are DDP or DDU. If omitted, DDU is assumed</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>sender_ioss_number</td>
+<td>The sender&#39;s IOSS number. This is required for the consignment to be considered IOSS eligible, and if all other IOSS requirements are met (lane, intrinsic value), each service in the response can be used for IOSS. If supplied, should be a valid IOSS number.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>address_collection.postcode</td>
+<td>The &#39;from&#39; address postcode. This is used in conjunction with the from address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>address_collection.country</td>
+<td>The &#39;from&#39; address country.</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>address_delivery.postcode</td>
+<td>The &#39;to&#39; address postcode. This is used in conjunction with the to address country to determine the customs jurisdiction and is part of the checks to see whether the consignment is IOSS eligible.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>address_delivery.country</td>
+<td>The &#39;to&#39; address country.</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces</td>
+<td>Array of pieces. Currently only single piece consignments are supported.</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces.*.weight</td>
+<td>Float. The weight of the piece in kilograms. Up to 3 decimal places are supported</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces.*.length</td>
+<td>Float. The length of the piece in centimeters. Up to 2 decimal places are supported</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces.*.width</td>
+<td>Float. The width of the piece in centimeters. Up to 2 decimal places are supported</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces.*.height</td>
+<td>Float. The height of the piece in centimeters. Up to 2 decimal places are supported</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td>pieces.*.contents</td>
+<td>Array of contents within the piece. The <code>value</code>, <code>quantity</code> and <code>currency</code> properties within each item are used to determine the intrinsic value of the consignment to see if it&#39;s IOSS eligible, if the other criteria for IOSS are met.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>pieces.<em>.contents.</em>.value</td>
+<td>Float. The unit value of the item in the item&#39;s <code>currency</code>. Up to 2 decimal places are supported. See description for <code>pieces.*.contents</code> about why this may be supplied</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>pieces.<em>.contents.</em>.currency</td>
+<td>String. 3 Characters. The ISO currency code, e.g. GBP, that the unit <code>value</code> is in. See description for <code>pieces.*.contents</code> about why this may be supplied</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>pieces.<em>.contents.</em>.quantity</td>
+<td>Integer. The number of unit of this item in the piece. The unit <code>value</code> of the item is multiplied by this to determine the intrinsic value when checking for IOSS eligibility. See description for <code>pieces.*.contents</code> about why this may be supplied</td>
+<td>Optional</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example JSON Request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insert Your Contract ID Here"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"terms_of_trade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DDP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sender_ioss_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IM1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO53 3TG"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"address_delivery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="s2">"75000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"FR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<aside class="success">
+On success a 200 response code is sent.
+The response body contains an array of services that a consignment with these properties could be booked on.
+If there are no available services, then the response body will contain an empty array
+</aside>
+
+<blockquote>
+<p>Example JSON Response with available services:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"epak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aliases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"alias 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alias 2"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"volumetric_divisor"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnTrak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ontrak"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aliases"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volumetric_divisor"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example JSON Response with no available services:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[]</span><span class="w">
+</span></code></pre>
+<aside class="warning">
+If the request payload is invalid, a 422 response code is sent, along with a body containing the errors.
+</aside>
+
+<blockquote>
+<p>Example JSON Error Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The given data was invalid."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contract_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"The contract id field is required."</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='errors'>Errors</h1>
 <p>The eTrak API uses the following error codes:</p>
 
 <table><thead>
