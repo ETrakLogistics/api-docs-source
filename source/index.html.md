@@ -1066,20 +1066,6 @@ A 200 response code is sent if the request is well-formed.
 
 ## Update A Piece
 
-> Example JSON Request:
-
-```json
-{
-    "checked_weight": 1.907,
-    "checked_length": 60,
-    "checked_width": 29,
-    "checked_height": 1
-}
-```
-
-
-## Update A Piece
-
 
 
 > Example JSON Request:
