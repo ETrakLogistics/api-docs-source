@@ -942,6 +942,141 @@ On success a 200 response code is sent.
 # Piece
 
 
+## List Pieces
+
+This endpoint allows you to list your pieces / parcels details.
+
+The results are ordered by most recently created piece first, and are paginated.
+
+The response includes a `data` property, which contains an error of pieces, with their consignment and references.
+
+You can search for pieces by barcode - likelihood is, this will match a single piece, but the please note the response format remains consistent, i.e. a `data` property containing an array of pieces.
+
+### Endpoint
+
+`GET https://api.etrak.io/api/pieces[?param1=value1[&param2=value2...]]`
+
+#### Available query string params
+
+Query String Parameter | Description
+--- | ---
+barcode | A label barcode
+
+<aside class="success">
+A 200 response code is sent if the request is well-formed.
+</aside>
+
+> Example JSON Response
+
+```json
+{
+    "data": [
+        {
+            "id": "71cc1903-e4a1-493a-8987-1207a9b2fe42",
+            "weight": "1.000",
+            "length": "30.00",
+            "width": "6.00",
+            "height": "5.00",
+            "declared_weight": "1.000",
+            "declared_length": "30.00",
+            "declared_width": "6.00",
+            "declared_height": "5.00",
+            "checked_weight": null,
+            "checked_length": null,
+            "checked_width": null,
+            "checked_height": null,
+            "contents": [
+                {
+                    "tax": "47.50",
+                    "duty": "0.00",
+                    "value": "250.00",
+                    "hs_code": "3901209000",
+                    "currency": "GBP",
+                    "quantity": "1",
+                    "checked_tax": "47.50",
+                    "description": "Candle",
+                    "checked_duty": "0.00",
+                    "country_of_origin": "GB"
+                }
+            ],
+            "tax": "47.50",
+            "duty": "0.00",
+            "consignment": {
+                "id": "1a4b3761-6854-457e-91fc-813fe58af26d",
+                "status": "booked",
+                "client_id": "1dc00400-faef-4169-9691-ab7ad9f8f90c",
+                "contract_id": "641b4b46-d0fe-4e76-b7e9-ce7754c26955",
+                "service_id": "ontrak",
+                "barcode": "ETETT000000259",
+                "client_ref1": "test",
+                "client_ref2": null,
+                "client_ref3": null,
+                "unique_sender_reference": "ETT-test-S-134",
+                "batch": null,
+                "webhook": null,
+                "terms_of_trade": "DDP",
+                "reason_for_export": "gift",
+                "export_type": "permanent",
+                "sender_tax_id": "GB123456789",
+                "sender_customs_id": "GB1234567890",
+                "sender_ioss_number": null,
+                "recipient_tax_id": null,
+                "recipient_customs_id": null,
+                "shipped": false,
+                "meta": null,
+                "onward_service": "B2CEurope.ExpressPriority",
+                "tax": "47.50",
+                "duty": "0.00",
+                "duties_and_taxes_chargeable_to_sender": true,
+                "duties_chargeable_to_sender": true,
+                "taxes_chargeable_to_sender": true,
+                "shipping_charge": null,
+                "shipping_charge_currency": null,
+                "created_at": "2021-10-14 07:48:16",
+                "updated_at": "2021-10-14 07:48:16"
+            },
+            "unique_sender_reference": "ETT-test-0-134",
+            "references": [
+                {
+                    "reference": "123456789",
+                    "type": "barcode"
+                },
+                {
+                    "reference": "123456789",
+                    "type": "tracking_number"
+                }
+            ]
+        }
+    ],
+    "links": {
+        "first": "https://api.etrak.io/api/pieces?page=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "https://api.etrak.io/api/pieces",
+        "per_page": 15,
+        "to": 1
+    }
+}
+```
+
+## Update A Piece
+
+> Example JSON Request:
+
+```json
+{
+    "checked_weight": 1.907,
+    "checked_length": 60,
+    "checked_width": 29,
+    "checked_height": 1
+}
+```
+
 
 ## Update A Piece
 
