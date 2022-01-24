@@ -944,28 +944,6 @@ On success a 200 response code is sent.
 
 ## List Pieces
 
-This endpoint allows you to list your pieces / parcels details.
-
-The results are ordered by most recently created piece first, and are paginated.
-
-The response includes a `data` property, which contains an error of pieces, with their consignment and references.
-
-You can search for pieces by barcode - likelihood is, this will match a single piece, but the please note the response format remains consistent, i.e. a `data` property containing an array of pieces.
-
-### Endpoint
-
-`GET https://api.etrak.io/api/pieces[?param1=value1[&param2=value2...]]`
-
-#### Available query string params
-
-Query String Parameter | Description
---- | ---
-barcode | A label barcode
-
-<aside class="success">
-A 200 response code is sent if the request is well-formed.
-</aside>
-
 > Example JSON Response
 
 ```json
@@ -1063,6 +1041,28 @@ A 200 response code is sent if the request is well-formed.
     }
 }
 ```
+
+This endpoint allows you to list your pieces / parcels details.
+
+The results are ordered by most recently created piece first, and are paginated.
+
+The response includes a `data` property, which contains an error of pieces, with their consignment and references.
+
+You can search for pieces by barcode - likelihood is, this will match a single piece, but the please note the response format remains consistent, i.e. a `data` property containing an array of pieces.
+
+### Endpoint
+
+`GET https://api.etrak.io/api/pieces[?param1=value1[&param2=value2...]]`
+
+#### Available query string params
+
+Query String Parameter | Description
+--- | ---
+barcode | A label barcode
+
+<aside class="success">
+A 200 response code is sent if the request is well-formed.
+</aside>
 
 ## Update A Piece
 
